@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 
-function LoginComponent (props){
+function RegisterComponent (props){
   const { username, password, error, onUsernameChange, onPasswordChange, onClick} = props;
       return (
           <>
-              <h1>Login</h1>
+              <h1>Register</h1>
               {error &&
                   <><b>{error}<br /><br /></b></>
               }
@@ -22,9 +22,9 @@ function LoginComponent (props){
                      value={password}
                      placeholder="password" />
               <button onClick={onClick}>Submit</button>
-              <Link to='/register' id="demo">resgister</Link>
+              <Link to='/login' id="demo">login</Link>
 
           </>
       );
   }
-export default LoginComponent;
+export default RegisterComponent;

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import LoginComponent from "./LoginComponent";
-
+import { postLogin } from "../API/LoginAPI"
 
 
 class LoginConteiner extends Component{
@@ -13,36 +13,40 @@ class LoginConteiner extends Component{
       }
       this.onUsernameChange = this.onUsernameChange.bind(this);
       this.onPasswordChange = this.onPasswordChange.bind(this);
+      this.onSuccessCallbackFunc = this.onSuccessCallbackFunc.bind(this);
+      this.onFailureCallbackFunc = this.onFailureCallbackFunc.bind(this);
       this.onClick = this.onClick.bind(this);
   }
 
 
-
   onUsernameChange(event) {
-      this.setState({
-          username: event.target.value,
-      });
-  }
-
-
-
+        this.setState({
+            username: event.target.value,
+        });
+    }
   onPasswordChange(event) {
       this.setState({
           password: event.target.value,
       });
   }
 
+  onSuccessCallbackFunc(responseData){
+    alert("success");
+    this.props.history.push("/quote");
 
+  }
+
+  onFailureCallbackFunc(responseData){
+    alert("wrong");
+  }
 
   onClick(e) {
-      const { username, password } = this.state;
-      if (username === "Hello" && password === "world") {
-        this.props.history.push("/quote");
-      } else {
-          this.setState({
-        error: "Incorrect password or username",
-        });
-      }
+    const{username, password} = this.state
+    const postData = {
+      username: username,
+      password: password,
+    };
+    postLogin(postData, this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
   }
 
       render() {

@@ -10,7 +10,7 @@ import Cat from "./img/cat.jpg";
 
 
 
-class QuoteComponent extends Component {
+class QuoteConteiner extends Component {
   render(){
       return (
           <>
@@ -27,11 +27,13 @@ class QuoteComponent extends Component {
                   <td>  <Link to="/PG"><img src={Pg} alt='alternatetext' width={100} /></Link>  </td>
                   <td>  <Link to="/Cat"><img src={Cat} alt='alternatetext' width={100} /></Link>  </td>
                 </tr>
-                </table>
+              </table>
+
+              <h3><Link to="/registerCompany">Register New Company</Link></h3>
 
 
           </>
       );
   }
 }
-export default QuoteComponent;
+export default QuoteConteiner;
