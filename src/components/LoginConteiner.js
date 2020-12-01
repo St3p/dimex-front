@@ -32,7 +32,7 @@ class LoginConteiner extends Component{
 
   onSuccessCallbackFunc(responseData){
     alert("success");
-    this.props.history.push("/quote");
+    this.props.history.push("/home");
 
   }
 
