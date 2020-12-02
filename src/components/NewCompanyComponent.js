@@ -12,7 +12,7 @@ import AuthNavBar from "./AuthNavBar";
 
 function NewCompanyComponent(props) {
     const {
-         company, logo, description, address,
+         company, logo, description,
 
          onCompanyChange,onlogoChange, onDescriptionChange, onSubmitClick
      } = props;

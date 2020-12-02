@@ -1,4 +1,4 @@
-import shortid from "shortid";
+
 const COMPANY_KEY = "Company_data";
 
 
@@ -22,9 +22,6 @@ export function postCreateCompany(postData, onSuccessCallbackFunc, onFailureCall
         // d. Set the TEXT to be empty
         textData = emptyArrayString;
     }
-
-    // Attach a unique ID to our `postData`.
-    postData.id = shortid.generate();
 
     // Convert the TEXT data into an ARRAY
     const arrayData = JSON.parse(textData);
