@@ -1,13 +1,9 @@
-import React, { Component} from "react";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
-import AnonNavBar from "./AnonNavBar"
 import Form from "react-bootstrap/Form";
-
 import AuthNavBar from "./AuthNavBar";
 
 function NewCompanyComponent(props) {
@@ -86,7 +82,7 @@ function NewCompanyComponent(props) {
             </Button>
 
             <br />
-            <Link to="/dashboard">Back</Link>
+            <Link to="/home">Back</Link>
             </Col>
           </Row>
 

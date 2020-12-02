@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import QuoteComponent from "./QuoteComponent";
 import { getDataCard } from "../API/NewCompanyAPI";
+import { step1WizardSetQuote } from "../Store/QuoteStore";
 
 class QuoteContainer extends Component {
   constructor(props) {
@@ -10,6 +11,8 @@ class QuoteContainer extends Component {
       }
       this.onSuccessCallbackFunc = this.onSuccessCallbackFunc.bind(this);
       this.onFailureCallbackFunc = this.onFailureCallbackFunc.bind(this);
+      this.onClick = this.onClick.bind(this);
+
   }
 
   componentDidMount() {
@@ -25,11 +28,18 @@ class QuoteContainer extends Component {
   onFailureCallbackFunc(responseData) {
       console.log(responseData);
   }
+
+  onClick(id, company){
+ step1WizardSetQuote(id, company);
+ this.props.history.push("/material");
+  }
     render() {
         const { companyArray } = this.state;
+
         return (
             <QuoteComponent
             companyArray={companyArray}
+            onClick={this.onClick}
             />
         );
     }

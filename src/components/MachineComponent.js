@@ -9,35 +9,36 @@ import Masonry from 'react-masonry-css'
 import AuthNavbar from "./AuthNavBar";
 
 
-function CompanyItem(props) {
-    const { company, logo, description } = props.item;
+function MachineItem(props) {
+    const { machine, foto, description, capacities } = props.item;
     return (
       <>
 
       <Card>
-      <Card.Img variant="top" src={logo} />
+      <Card.Img variant="top" src={foto} />
           <Card.Body>
-            <Card.Title>{company}</Card.Title>
+            <Card.Title>{machine}</Card.Title>
             <Card.Text>
             {description}
+            {capacities}
             </Card.Text>
-      <Button href="/material" variant="primary">Make a Quote for {company}</Button>
+      <Button href="/material" variant="primary">{machine}</Button>
             </Card.Body>
       </Card>
       </>
     );
 }
 
-function CompanyTable(props) {
+function MachineTable(props) {
 
     function renderRow(item) {
-        return <CompanyItem item={item} />;
+        return <MachineItem item={item} />;
     }
 
     const { array } = props;
     return (
         <>
-            <h2>Companies name</h2>
+            <h2>Machine</h2>
 
             <Container>
               <Row>
@@ -56,18 +57,18 @@ function CompanyTable(props) {
 }
 
 
-function CompanyComponent(props) {
-    const { companyArray } = props;
+function MachineComponent(props) {
+    const { machineArray } = props;
     return (
         <>
             <AuthNavbar />
             <br />
             <br />
-            <CompanyTable array={companyArray} />
+            <MachineTable array={machineArray} />
             <br />
             <br />
         </>
     );
 }
 
-export default CompanyComponent
+export default MachineComponent

@@ -1,12 +1,12 @@
 
-const COMPANY_KEY = "Company_data";
+const MACHINE_KEY = "Machine_data";
 
 
-export function postCreateCompany(postData, onSuccessCallbackFunc, onFailureCallbackFunc) {
-    console.log("Starting postCreateCompany...");
+export function postCreateMachine(postData, onSuccessCallbackFunc, onFailureCallbackFunc) {
+    console.log("Starting postCreateMachine...");
 
     // GET the TEXT data from localStorage.
-    let textData = localStorage.getItem(COMPANY_KEY);
+    let textData = localStorage.getItem(MACHINE_KEY);
 
     // If TEXT data is null then:
     if (textData === null) {
@@ -17,7 +17,7 @@ export function postCreateCompany(postData, onSuccessCallbackFunc, onFailureCall
         const emptyArrayString = JSON.stringify(emptyArray);
 
         // c. Save the TEXT to localStorage
-        localStorage.setItem(COMPANY_KEY, emptyArrayString);
+        localStorage.setItem(MACHINE_KEY, emptyArrayString);
 
         // d. Set the TEXT to be empty
         textData = emptyArrayString;
@@ -25,11 +25,7 @@ export function postCreateCompany(postData, onSuccessCallbackFunc, onFailureCall
 
     // Convert the TEXT data into an ARRAY
     const arrayData = JSON.parse(textData);
-    //Add ID.
-    const shortid = require('shortid');
 
-    postData["id"] = shortid.generate();
-    
     // Push the `postData` into our ARRAY
     arrayData.push(postData);
 
@@ -37,7 +33,7 @@ export function postCreateCompany(postData, onSuccessCallbackFunc, onFailureCall
     textData = JSON.stringify(arrayData);
 
     // Save the TEXT data to localStorage.
-    localStorage.setItem(COMPANY_KEY, textData);
+    localStorage.setItem(MACHINE_KEY, textData);
 
     const responseData = { message: "Added" };
     onSuccessCallbackFunc(responseData);
@@ -45,7 +41,7 @@ export function postCreateCompany(postData, onSuccessCallbackFunc, onFailureCall
 
 export function getDataCard(onSuccessCallbackFunc, onFailureCallbackFunc) {
     // Get the TEXT data from localStorage.
-    let textData = localStorage.getItem(COMPANY_KEY);
+    let textData = localStorage.getItem(MACHINE_KEY);
 
     // If TEXT data is null:
     if (textData === null) {
@@ -56,7 +52,7 @@ export function getDataCard(onSuccessCallbackFunc, onFailureCallbackFunc) {
         textData = JSON.stringify(emptyArray)
 
         // c. Save the TEXT to localStorage
-        localStorage.setItem(COMPANY_KEY, textData)
+        localStorage.setItem(MACHINE_KEY, textData)
     }
 
     // Convert the TEXT to ARRAY
@@ -69,9 +65,9 @@ export function getDataCard(onSuccessCallbackFunc, onFailureCallbackFunc) {
 }
 
 
-export function getCompany(id, onSuccessCallbackFunc, onFailureCallbackFunc) {
+export function getMachine(id, onSuccessCallbackFunc, onFailureCallbackFunc) {
     // Get the TEXT data from the localStorage
-    let textData = localStorage.getItem(COMPANY_KEY);
+    let textData = localStorage.getItem(MACHINE_KEY);
 
     // If TEXT data is null then:
     if (textData === null) {
@@ -82,7 +78,7 @@ export function getCompany(id, onSuccessCallbackFunc, onFailureCallbackFunc) {
         textData = JSON.stringify(emptyArrayData)
 
         // c. Save the TEXT to localStorage
-        localStorage.setItem(COMPANY_KEY, textData);
+        localStorage.setItem(MACHINE_KEY, textData);
     }
 
     // Convert the TEXT data to ARRAY data.

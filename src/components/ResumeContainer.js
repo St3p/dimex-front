@@ -4,11 +4,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/Alert";
 import { BrowserRouter, Link} from "react-router-dom";
+import AuthNavbar from "./AuthNavBar";
 
 class ResumeContainer extends Component {
   render(){
       return (
           <>
+          <AuthNavbar />
           <Row>
             <Col>
             <h2>resume.</h2>

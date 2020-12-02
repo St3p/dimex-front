@@ -16,7 +16,7 @@ function HomeComponents(){
       </Row>
       <Row>
         <Col>
-        <h3><Link to="/machines">Machines</Link></h3>
+        <h3><Link to="/machine">Machines</Link></h3>
         </Col>
       </Row>
       <Row>

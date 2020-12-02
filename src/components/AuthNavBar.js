@@ -10,17 +10,16 @@ function AnonNavBar(){
   return (
     <>
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="/">DIMEX Quote</Navbar.Brand>
+      <Navbar.Brand href="/home">DIMEX Quote</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/home">Home</Nav.Link>
           <Nav.Link href="/login">Logout</Nav.Link>
-          <Nav.Link href="/register">Start Quote</Nav.Link>
+          <Nav.Link href="/quote">Start Quote</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-
 </>
 )
 }
