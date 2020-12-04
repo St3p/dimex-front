@@ -33,6 +33,7 @@ class QuoteContainer extends Component {
  step1WizardSetQuote(id, company);
  this.props.history.push("/material");
   }
+
     render() {
         const { companyArray } = this.state;
 

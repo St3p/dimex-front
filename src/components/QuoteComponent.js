@@ -44,7 +44,6 @@ function CompanyTable(props) {
 const { onClick } = props;
 
     function renderRow(item) {
-
         return <CompanyItem onClick = {onClick} item={item} />;
     }
 
