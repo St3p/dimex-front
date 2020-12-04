@@ -3,7 +3,7 @@ const QUOTE_STEP1_KEY_COMPANY = "quoteStepOneCompany"
 const QUOTE_STEP2_KEY_MATERIAL = "quoteStepTwoMaterial"
 const QUOTE_STEP3_KEY_MACHINE = "quoteStepThreeMaterial"
 const QUOTE_STEP4_KEY_MACHINE = "quoteStepFourCritic"
-
+const Quote_STEP5_KEY_LEVEL = "quoteStepFiveLevel"
 
 const QUOTE_STEP2_KEY_COST = "quoteStepTwoCost"
 const QUOTE_STEP2_KEY_DELIVERY = "quoteStepTwoDelivery"
@@ -24,7 +24,14 @@ const QUOTE_STEP4_KEY_PROFILEOFASURFACE = "quoteStepFourProfileOfSurface"
 const QUOTE_STEP4_KEY_SYMMETRY = "quoteStepFourSymmetry"
 const QUOTE_STEP4_KEY_CONCENTRICITY = "quoteStepFourConcentricity"
 
-
+const QUOTE_STEP5_KEY_H7HOLE = "quoteStepFiveH7Hole"
+const QUOTE_STEP5_KEY_H8HOLE = "quoteStepFiveH8Hole"
+const QUOTE_STEP5_KEY_H9HOLE = "quoteStepFiveH9Hole"
+const QUOTE_STEP5_KEY_H11HOLE = "quoteStepFiveH11Hole"
+const QUOTE_STEP5_KEY_H6AXIS = "quoteStepFiveH6Axis"
+const QUOTE_STEP5_KEY_H7AXIS = "quoteStepFiveH7Axis"
+const QUOTE_STEP5_KEY_H9AXIS = "quoteStepFiveH9Axis"
+const QUOTE_STEP5_KEY_H11AXIS = "quoteStepFiveH11Axis"
 
 
 export function step1WizardSetQuote (id, company){
@@ -61,6 +68,19 @@ export function step4WizardSetQuote ( flatness, straightness, circularity, cylin
   localStorage.setItem(QUOTE_STEP4_KEY_CONCENTRICITY, concentricity);
 }
 
+export function step5WizardSetQuote ( h7Hole, h8Hole, h9Hole, h11Hole,
+        h6Axis, h7Axis, h9Axis, h11Axis){
+  localStorage.setItem(QUOTE_STEP5_KEY_H7HOLE, h7Hole);
+  localStorage.setItem(QUOTE_STEP5_KEY_H8HOLE, h8Hole);
+  localStorage.setItem(QUOTE_STEP5_KEY_H9HOLE, h9Hole);
+  localStorage.setItem(QUOTE_STEP5_KEY_H11HOLE, h11Hole);
+  localStorage.setItem(QUOTE_STEP5_KEY_H6AXIS, h6Axis);
+  localStorage.setItem(QUOTE_STEP5_KEY_H7AXIS, h7Axis);
+  localStorage.setItem(QUOTE_STEP5_KEY_H9AXIS, h9Axis);
+  localStorage.setItem(QUOTE_STEP5_KEY_H11AXIS, h11Axis);
+
+
+}
 
 export function  step1WizardGetQuoteID() {
   const id= localStorage.getItem(QUOTE_STEP1_KEY_ID);
@@ -154,4 +174,44 @@ export function  step4WizardGetQuoteSymmetry() {
 export function  step4WizardGetQuoteConcentricity() {
   const concentricity= localStorage.getItem(QUOTE_STEP4_KEY_CONCENTRICITY);
   return concentricity;
+}
+
+export function  step4WizardGetQuoteH7Hole() {
+  const h7Hole= localStorage.getItem(QUOTE_STEP5_KEY_H7HOLE);
+  return h7Hole;
+}
+
+export function  step4WizardGetQuoteH8Hole() {
+  const h8Hole= localStorage.getItem(QUOTE_STEP5_KEY_H8HOLE);
+  return h8Hole;
+}
+
+export function  step4WizardGetQuoteH9Hole() {
+  const h9Hole= localStorage.getItem(QUOTE_STEP5_KEY_H9HOLE);
+  return h9Hole;
+}
+
+export function  step4WizardGetQuoteH11Hole() {
+  const h11Hole= localStorage.getItem(QUOTE_STEP5_KEY_H11HOLE);
+  return h11Hole;
+}
+
+export function  step4WizardGetQuoteh6Axis() {
+  const h6Axis= localStorage.getItem(QUOTE_STEP5_KEY_H6AXIS);
+  return h6Axis;
+}
+
+export function  step4WizardGetQuoteh7Axis() {
+  const h7Axis= localStorage.getItem(QUOTE_STEP5_KEY_H7AXIS);
+  return h7Axis;
+}
+
+export function  step4WizardGetQuoteh9Axis() {
+  const h9Axis= localStorage.getItem(QUOTE_STEP5_KEY_H9AXIS);
+  return h9Axis;
+}
+
+export function  step4WizardGetQuoteh11Axis() {
+  const h11Axis= localStorage.getItem(QUOTE_STEP5_KEY_H11AXIS);
+  return h11Axis;
 }
