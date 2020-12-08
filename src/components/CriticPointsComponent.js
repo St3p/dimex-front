@@ -52,6 +52,7 @@ function CriticPointsComponent(props) {
                                     <Form.Check type={type}
                                                 id={`check-api-${type}`}>
                                       <Form.Check.Input
+                                                variant= "melon"
                                                 type={type}
                                                 onChange={onStraightnessChange}
                                                 value={straightness}

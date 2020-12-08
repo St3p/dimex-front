@@ -6,11 +6,13 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Masonry from 'react-masonry-css'
-import AuthNavbar from "./AuthNavBar";
+import AuthNavBar from "./AuthNavBar";
+import Form from "react-bootstrap/Form";
 
 
 function MachineItem(props) {
     const { machine, foto, description, capacities } = props.item;
+    const { onHoursChange, onSubmitClick, hours } = props;
     return (
       <>
 
@@ -20,9 +22,28 @@ function MachineItem(props) {
             <Card.Title>{machine}</Card.Title>
             <Card.Text>
             {description}
-            {capacities}
             </Card.Text>
-      <Button href="/criticPoints" variant="primary">Make a Quote for {machine}</Button>
+            <br />
+            <Card.Text>
+            Capacities:  {capacities}
+            </Card.Text>
+            <Form>
+                <Form.Group>
+                <Form.Label>Hours</Form.Label>
+                <Form.Control type="text"
+                              placeholder="hours"
+                              onChange={onHoursChange}
+                              value={hours}
+                              id="hours"
+                              name="hours"
+                              />
+                </Form.Group>
+                </Form>
+                <Button
+                      variant="primary"
+                      type="submit"
+                      id="add"
+                      onClick={()=>onSubmitClick( machine, capacities, hours)}>Make a Quote for {machine}</Button>
             </Card.Body>
       </Card>
       </>
@@ -30,43 +51,46 @@ function MachineItem(props) {
 }
 
 function MachineTable(props) {
+const { onSubmitClick, onHoursChange, hours } = props;
 
     function renderRow(item) {
-        return <MachineItem item={item} />;
+        return <MachineItem onSubmitClick={onSubmitClick} item={item} hours={hours} onHoursChange={onHoursChange}/>;
     }
 
     const { array } = props;
     return (
         <>
-            <h2>Machine name</h2>
-
-            <Container>
-              <Row>
-                <Col>
-                <Masonry
-  breakpointCols={4}
-  className="my-masonry-grid"
-  columnClassName="my-masonry-grid_column">
     {array.map(renderRow)}
-</Masonry>
-                </Col>
-              </Row>
-            </Container>
         </>
     );
 }
 
 
 function MachineProcessComponent(props) {
-    const { machineArray } = props;
+    const { onSubmitClick, machineArray, onHoursChange, hours } = props;
     return (
         <>
-            <AuthNavbar />
-            <br />
-            <br />
-            <MachineTable array={machineArray} />
-            <br />
-            <br />
+        <AuthNavBar/>
+
+        <Container>
+          <Row>
+            <Col>
+              <h1>Quotation Process</h1>
+            </Col>
+          </Row>
+        </Container>
+        <Container>
+              <Row>
+                <Col>
+                <Masonry
+                  breakpointCols={4}
+                  className="my-masonry-grid"
+                  columnClassName="my-masonry-grid_column">
+                  <MachineTable onSubmitClick={onSubmitClick} array={machineArray} onHoursChange={onHoursChange} hours={hours}/>
+                </Masonry>
+                </Col>
+              </Row>
+        </Container>
         </>
     );
 }

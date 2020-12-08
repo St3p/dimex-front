@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Alert from "react-bootstrap/Alert";
-import { BrowserRouter, Link} from "react-router-dom";
 import { getDataCard } from "../API/NewMachineAPI";
 import MachineProcessComponent from "./MachineProcessComponent";
+import { step3WizardSetQuote } from "../Store/QuoteStore";
 
 
 
@@ -15,14 +11,11 @@ class MachineProcessContainer extends Component {
       this.state = {
           machineArray: [],
       }
+      this.onHoursChange = this.onHoursChange.bind(this);
+      this.onSubmitClick = this.onSubmitClick.bind(this);
       this.onSuccessCallbackFunc = this.onSuccessCallbackFunc.bind(this);
       this.onFailureCallbackFunc = this.onFailureCallbackFunc.bind(this);
   }
-
-  componentDidMount() {
-      getDataCard(this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
-  }
-
   onSuccessCallbackFunc(responseData) {
       this.setState({
           machineArray: responseData.results,
@@ -32,12 +25,30 @@ class MachineProcessContainer extends Component {
   onFailureCallbackFunc(responseData) {
       console.log(responseData);
   }
+  componentDidMount() {
+      getDataCard(this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
+  }
+
+  onHoursChange(e) {
+      this.setState({
+          hours: e.target.value,
+      });
+  };
+  onSubmitClick( machine, capacities, hours ) {
+    step3WizardSetQuote( machine, capacities, hours );
+    this.props.history.push("/criticPoints");
+
+  }
 
   render() {
-      const { machineArray } = this.state;
+      const { machineArray, hours } = this.state;
       return (
           <MachineProcessComponent
               machineArray={machineArray}
+              onMaterialChange={this.onMaterialChange}
+              onSubmitClick={this.onSubmitClick}
+              onHoursChange={this.onHoursChange}
+              hours={hours}
           />
       );
   }

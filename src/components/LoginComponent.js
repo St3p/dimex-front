@@ -7,6 +7,9 @@ import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
 import AnonNavBar from "./AnonNavBar"
 import Form from "react-bootstrap/Form";
+import Masonry from 'react-masonry-css'
+import LogoEXP from "./Carusel/logoEXP.png";
+
 
 
 function LoginComponent (props){
@@ -15,6 +18,21 @@ function LoginComponent (props){
       return (
           <>
           <AnonNavBar/>
+          < br />
+          < br />
+          < br />
+
+          <Masonry
+            breakpointCols={2}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column">
+          <Container>
+            <Row>
+              <Col>
+              <img variant="top" src={LogoEXP} />
+              </Col>
+            </Row>
+          </Container>
           <Container>
             <Row>
               <Col>
@@ -61,6 +79,7 @@ function LoginComponent (props){
               </Col>
             </Row>
           </Container>
+          </Masonry>
 
           </>
       );

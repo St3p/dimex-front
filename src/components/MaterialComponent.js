@@ -5,6 +5,9 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import AuthNavBar from "./AuthNavBar";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+
+
 
 function MaterialComponent(props) {
     const {
@@ -57,7 +60,7 @@ function MaterialComponent(props) {
                       <Col>
                           <Form>
                               <Form.Group>
-                              <Form.Label>delivery</Form.Label>
+                              <Form.Label>Delivery</Form.Label>
                               <Form.Control type="text"
                                             placeholder="delivery"
                                             onChange={onDeliveryChange}
@@ -73,16 +76,24 @@ function MaterialComponent(props) {
             <br />
             <br /><br />
             <Row>
-            <Col>
+            <Col >
+            <ButtonToolbar
+            className="justify-content-between">
+
             <Button
-                    variant="primary"
+                    variant="melon"
                     type="submit"
                     id="add"
-                    onClick={()=>onSubmitClick(material, cost, delivery)}>submit
+                    href="/quote" >Back
             </Button>
 
-            <br />
-            <Link to="/home">Back</Link>
+            <Button
+                    variant="melon"
+                    type="submit"
+                    id="add"
+                    onClick={()=>onSubmitClick(material, cost, delivery)}> Next
+            </Button>
+            </ButtonToolbar>
             </Col>
           </Row>
 

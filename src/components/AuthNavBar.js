@@ -4,13 +4,22 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
+import Logo from "./Carusel/logo.png"
 
 
 function AnonNavBar(){
   return (
     <>
-    <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="/home">DIMEX Quote</Navbar.Brand>
+    <Navbar bg="White" expand="lg">
+      <Navbar.Brand href="/home">
+      <img
+    src={Logo}
+    width="50"
+    className="d-inline-block align-top"
+    alt="React Bootstrap logo"
+    />&nbsp;
+     Dimex
+     </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
