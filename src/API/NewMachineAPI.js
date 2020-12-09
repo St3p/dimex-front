@@ -25,6 +25,11 @@ export function postCreateMachine(postData, onSuccessCallbackFunc, onFailureCall
 
     // Convert the TEXT data into an ARRAY
     const arrayData = JSON.parse(textData);
+    //Add ID.
+    const shortid = require('shortid');
+
+    postData["id"] = shortid.generate();
+
 
     // Push the `postData` into our ARRAY
     arrayData.push(postData);

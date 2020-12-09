@@ -10,6 +10,7 @@ class MachineProcessContainer extends Component {
       super(props);
       this.state = {
           machineArray: [],
+          hoursObj:{},
       }
       this.onHoursChange = this.onHoursChange.bind(this);
       this.onSubmitClick = this.onSubmitClick.bind(this);
@@ -29,26 +30,30 @@ class MachineProcessContainer extends Component {
       getDataCard(this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
   }
 
-  onHoursChange(e) {
-      this.setState({
-          hours: e.target.value,
+  onHoursChange(value, id) {
+    console.log(value, id);
+    const { hoursObj } = this.state;
+    hoursObj[id] = value;
+     this.setState({
+       hoursObj: hoursObj,
       });
   };
-  onSubmitClick( machine, capacities, hours ) {
-    step3WizardSetQuote( machine, capacities, hours );
+  onSubmitClick() {
+    const {hoursObj} = this.state;
+    step3WizardSetQuote( hoursObj );
     this.props.history.push("/criticPoints");
 
   }
 
   render() {
-      const { machineArray, hours } = this.state;
+      const { machineArray, hoursObj } = this.state;
       return (
           <MachineProcessComponent
               machineArray={machineArray}
               onMaterialChange={this.onMaterialChange}
               onSubmitClick={this.onSubmitClick}
               onHoursChange={this.onHoursChange}
-              hours={hours}
+              hoursObj={hoursObj}
           />
       );
   }

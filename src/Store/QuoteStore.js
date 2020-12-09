@@ -46,10 +46,8 @@ export function step2WizardSetQuote (material, cost, delivery){
 
 }
 
-export function step3WizardSetQuote ( machine, capacities, hours){
-  localStorage.setItem(QUOTE_STEP3_KEY_MACHINE, machine);
-  localStorage.setItem(QUOTE_STEP3_KEY_CAPACITIES, capacities);
-  localStorage.setItem(QUOTE_STEP3_KEY_HOURS, hours);
+export function step3WizardSetQuote ( hoursObj){
+  localStorage.setItem(QUOTE_STEP3_KEY_HOURS, JSON.stringify(hoursObj));
 
 }
 
@@ -116,8 +114,8 @@ export function  step3WizardGetQuoteCapacities() {
 }
 
 export function  step3WizardGetQuoteHours() {
-  const hours= localStorage.getItem(QUOTE_STEP3_KEY_HOURS);
-  return hours;
+  const hoursObjstring= localStorage.getItem(QUOTE_STEP3_KEY_HOURS);
+  return JSON.parse(hoursObjstring);
 }
 
 export function  step4WizardGetQuoteFlatness() {

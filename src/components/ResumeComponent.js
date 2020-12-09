@@ -44,7 +44,7 @@ function ResumeComponent(props) {
           </Nav>
             < br />
             < br />
-            <h4>Resume</h4>
+            <h4>Finalize</h4>
             <p>Please check the information</p>
             <br />
             <Table striped bordered hover>

@@ -15,9 +15,11 @@ import Nav from "react-bootstrap/Nav";
 
 
 function MachineItem(props) {
-    const { machine, foto, description, capacities } = props.item;
-    const { onHoursChange, onSubmitClick, hours } = props;
-    return (
+    const { machine, foto, description, capacities, id } = props.item;
+    const { onHoursChange, onSubmitClick, hoursObj } = props;
+    console.log();
+    const hour = hoursObj [machine.id];
+        return (
       <>
 
       <Card>
@@ -32,17 +34,17 @@ function MachineItem(props) {
             Capacities:  {capacities}
             </Card.Text>
 
-              <InputGroup className="mb-3">
-                <InputGroup.Prepend>
-                  <InputGroup.Checkbox/>
-                </InputGroup.Prepend>
-                <FormControl type="text"
+              <InputGroup>
+                <Form>
+                  <Form.Group>
+                  <FormControl type="text"
                               placeholder="hours"
-                              onChange={onHoursChange}
-                              value={hours}
-                              id="hours"
-                              name="hours"
+                              onChange={ (event)=>onHoursChange(event.target.value, id)}
+                              value={hour}
+                              id={id}
                               />
+                  </Form.Group>
+                  </Form>
               </InputGroup>
 
 
@@ -58,10 +60,10 @@ function MachineItem(props) {
 }
 
 function MachineTable(props) {
-const { onSubmitClick, onHoursChange, hours, machine, capacities } = props;
+const { onSubmitClick, onHoursChange, hoursObj, machine, capacities } = props;
 
     function renderRow(item) {
-        return <MachineItem onSubmitClick={onSubmitClick} item={item} hours={hours}
+        return <MachineItem onSubmitClick={onSubmitClick} item={item} hoursObj={hoursObj}
         onHoursChange={onHoursChange} capacities={capacities} machine={machine}/>;
     }
 
@@ -92,7 +94,7 @@ const { onSubmitClick, onHoursChange, hours, machine, capacities } = props;
 
 
 function MachineProcessComponent(props) {
-    const { onSubmitClick, machineArray, onHoursChange, hours, machine, capacities } = props;
+    const { onSubmitClick, machineArray, onHoursChange, hoursObj, machine, capacities } = props;
     return (
         <>
         <AuthNavBar/>
@@ -122,7 +124,7 @@ function MachineProcessComponent(props) {
             </Nav.Item>
           </Nav>
                   <MachineTable onSubmitClick={onSubmitClick} array={machineArray}
-                   onHoursChange={onHoursChange} hours={hours} machine={machine}
+                   onHoursChange={onHoursChange} hoursObj={hoursObj} machine={machine}
                    capacities={capacities}/>
                   </Col>
                 </Row>
@@ -148,7 +150,7 @@ function MachineProcessComponent(props) {
                 variant="melon"
                 type="submit"
                 id="add"
-                onClick={()=>onSubmitClick( machine, capacities, hours)}>Next
+                onClick={()=>onSubmitClick( machine, capacities, hoursObj)}>Next
         </Button>
         </ButtonToolbar>
 
