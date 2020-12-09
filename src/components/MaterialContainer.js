@@ -14,9 +14,9 @@ class MaterialContainer extends Component {
   constructor(props) {
       super(props);
       this.state = {
-          material: "",
-          cost: "",
-          delivery: "",
+          material: localStorage.getItem("quoteStepTwoMaterial"),
+          cost: localStorage.getItem("quoteStepTwoCost"),
+          delivery: localStorage.getItem("quoteStepTwoDelivery"),
       }
       this.onMaterialChange = this.onMaterialChange.bind(this);
       this.onCostChange = this.onCostChange.bind(this);

@@ -49,30 +49,6 @@ function MachineItem(props) {
             </Card.Body>
       </Card>
 
-      <br />
-      <br /><br />
-      <Row>
-      <Col >
-      <ButtonToolbar
-      className="justify-content-between">
-
-      <Button
-              variant="melon"
-              type="submit"
-              id="add"
-              href="/material" >Back
-      </Button>
-
-      <Button
-              variant="melon"
-              type="submit"
-              id="add"
-              onClick={()=>onSubmitClick( machine, capacities, hours)}>Next
-      </Button>
-      </ButtonToolbar>
-
-      </Col>
-    </Row>
 
 
 
@@ -82,23 +58,41 @@ function MachineItem(props) {
 }
 
 function MachineTable(props) {
-const { onSubmitClick, onHoursChange, hours } = props;
+const { onSubmitClick, onHoursChange, hours, machine, capacities } = props;
 
     function renderRow(item) {
-        return <MachineItem onSubmitClick={onSubmitClick} item={item} hours={hours} onHoursChange={onHoursChange}/>;
+        return <MachineItem onSubmitClick={onSubmitClick} item={item} hours={hours}
+        onHoursChange={onHoursChange} capacities={capacities} machine={machine}/>;
     }
 
     const { array } = props;
     return (
         <>
+        <br />
+        < br />
+        <h4>Machine</h4>
+        <p>Please fill out this form</p>
+        <br />
+  <Container>
+        <Row>
+          <Col>
+          <Masonry
+            breakpointCols={4}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column">
     {array.map(renderRow)}
+    </Masonry>
+    </Col>
+  </Row>
+</Container>
+
         </>
     );
 }
 
 
 function MachineProcessComponent(props) {
-    const { onSubmitClick, machineArray, onHoursChange, hours } = props;
+    const { onSubmitClick, machineArray, onHoursChange, hours, machine, capacities } = props;
     return (
         <>
         <AuthNavBar/>
@@ -107,48 +101,62 @@ function MachineProcessComponent(props) {
           <Row>
             <Col>
             < br />
-            <Nav justify variant="tabs" defaultActiveKey="/machine">
-              <Nav.Item>
-                <Nav.Link eventKey="/company">Company</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/material">Material</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/machine">Machine</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/criticPoints">Critic Points</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/Precision">Precision</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/resume">Resume</Nav.Link>
-              </Nav.Item>
-            </Nav>
-              <br />
-              < br />
-              <h4>Machine</h4>
-              <p>Please fill out this form</p>
-              <br />
-            </Col>
-          </Row>
-        </Container>
+            <Nav justify variant="tabs" defaultActiveKey="/machineProcess">
+            <Nav.Item>
+              <Nav.Link href="/quote" >1. Company</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/material" >2. Material</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/machineProcess" >3. Machine</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="/criticPoints" disabled>4. Critic Points</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="/criticPoints" disabled>5. Precision</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="/resume" disabled>6. Finalize</Nav.Link>
+            </Nav.Item>
+          </Nav>
+                  <MachineTable onSubmitClick={onSubmitClick} array={machineArray}
+                   onHoursChange={onHoursChange} hours={hours} machine={machine}
+                   capacities={capacities}/>
+                  </Col>
+                </Row>
+              </Container>
+
+
+        <br />
+        <br />
         <Container>
-              <Row>
-                <Col>
-                <Masonry
-                  breakpointCols={4}
-                  className="my-masonry-grid"
-                  columnClassName="my-masonry-grid_column">
-                  <MachineTable onSubmitClick={onSubmitClick} array={machineArray} onHoursChange={onHoursChange} hours={hours}/>
-                </Masonry>
-                </Col>
-              </Row>
-        </Container>
-        <br />
-        <br />
+        <Row>
+        <Col >
+        <ButtonToolbar
+        className="justify-content-between">
+
+        <Button
+                variant="melon"
+                type="submit"
+                id="add"
+                href="/material" >Back
+        </Button>
+
+        <Button
+                variant="melon"
+                type="submit"
+                id="add"
+                onClick={()=>onSubmitClick( machine, capacities, hours)}>Next
+        </Button>
+        </ButtonToolbar>
+
+        </Col>
+      </Row>
+     </Container>
+      <br />
+      <br /><br />
         </>
     );
 }

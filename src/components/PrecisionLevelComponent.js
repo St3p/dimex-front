@@ -29,26 +29,26 @@ function PrecisionLevelComponent(props) {
               <Row>
                 <Col>
                 < br />
-                <Nav justify variant="tabs" defaultActiveKey="/Precision">
-                  <Nav.Item>
-                    <Nav.Link eventKey="/company">Company</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="/material">Material</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="/machine">Machine</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="/criticPoints">Critic Points</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="/Precision">Precision</Nav.Link>
-                  </Nav.Item>
-                  <Nav.Item>
-                    <Nav.Link eventKey="/resume">Resume</Nav.Link>
-                  </Nav.Item>
-                </Nav>
+                <Nav justify variant="tabs" defaultActiveKey="/presicionLevel">
+                <Nav.Item>
+                  <Nav.Link href="/quote" >1. Company</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/material" >2. Material</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/machineProcess" >3. Machine</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/criticPoints" >4. Critic Points</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/presicionLevel" >5. Precision</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/resume" disabled>6. Finalize</Nav.Link>
+                </Nav.Item>
+              </Nav>
                 <br />
                 < br />
                 <h4>Presicion</h4>

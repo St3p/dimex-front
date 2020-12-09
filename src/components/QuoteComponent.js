@@ -68,22 +68,22 @@ function QuoteComponent (props) {
               < br />
               <Nav justify variant="tabs" defaultActiveKey="/company">
                 <Nav.Item>
-                  <Nav.Link eventKey="/company">Company</Nav.Link>
+                  <Nav.Link eventKey="/company" >1. Company</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="/material">Material</Nav.Link>
+                  <Nav.Link eventKey="/material" disabled>2. Material</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="/machineProcess">Machine</Nav.Link>
+                  <Nav.Link eventKey="/machineProcess" disabled>3. Machine</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="/criticPoints">Critic Points</Nav.Link>
+                  <Nav.Link eventKey="/criticPoints" disabled>4. Critic Points</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="/criticPoints">Precision</Nav.Link>
+                  <Nav.Link eventKey="/criticPoints" disabled>5. Precision</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="/resume">Resume</Nav.Link>
+                  <Nav.Link eventKey="/resume" disabled>6. Finalize</Nav.Link>
                 </Nav.Item>
               </Nav>
               < br />
