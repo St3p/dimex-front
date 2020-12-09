@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import AuthNavBar from "./AuthNavBar";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import Nav from "react-bootstrap/Nav";
 
 
 
@@ -18,12 +19,35 @@ function MaterialComponent(props) {
     return (
         <>
             <AuthNavBar />
-            <h1>Material</h1>
-            <p>Please fill out this form</p>
-            <br />
             <Container>
             <Row>
               <Col>
+              < br />
+              <Nav justify variant="tabs" defaultActiveKey="/material">
+                <Nav.Item>
+                  <Nav.Link eventKey="/company">Company</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/material">Material</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/machineProcess">Machine</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/criticPoints">Critic Points</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/Precision">Precision</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/resume">Resume</Nav.Link>
+                </Nav.Item>
+              </Nav>
+              < br />
+              < br />
+              <h4>Material</h4>
+              <p>Please fill out this form</p>
+              <br />
                   <Form>
                       <Form.Group>
                       <Form.Label>Material</Form.Label>
@@ -94,7 +118,9 @@ function MaterialComponent(props) {
                     onClick={()=>onSubmitClick(material, cost, delivery)}> Next
             </Button>
             </ButtonToolbar>
-            </Col>
+            <br />
+            <br />
+          </Col>
           </Row>
 
   </Container>

@@ -9,7 +9,7 @@ import AnonNavBar from "./AnonNavBar"
 import Form from "react-bootstrap/Form";
 import Masonry from 'react-masonry-css'
 import LogoEXP from "./Carusel/logoEXP.png";
-
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 
 
 function LoginComponent (props){
@@ -68,14 +68,19 @@ function LoginComponent (props){
                                     isInvalid={isInvalid}
                                     type="text" />
                       </Form.Group>
+                      </Form>
+                      <ButtonToolbar
+                      className="justify-content-between">
 
                       <Button
-                              variant="primary"
                               type="submit"
-                              onClick={onClick}> Login
+                              onClick={onClick}
+                              variant="melon"> Login
                       </Button>
-                  </Form>
-                      <Alert.Link href="/register">register</Alert.Link>
+                      <Button href="/register"
+                              variant="melon">register
+                      </Button>
+                      </ButtonToolbar>
               </Col>
             </Row>
           </Container>

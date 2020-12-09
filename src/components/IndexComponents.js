@@ -70,7 +70,8 @@ columnClassName="my-masonry-grid_column">
       < br />
     </Card.Text>
     <Button variant="primary"
-            href="/login">Login
+            href="/login"
+            variant="melon">Login
     </Button>
   </Card.Body>
   </Card>
@@ -83,7 +84,8 @@ columnClassName="my-masonry-grid_column">
       < br />
       </Card.Text>
       <Button variant="primary"
-              href="/register">Register
+              href="/register"
+              variant="melon">Register
       </Button>
     </Card.Body>
     </Card>

@@ -21,7 +21,6 @@ function CompanyItem(props) {
             <Card.Text>
             {description}
             </Card.Text>
-      <Button href="/material" variant="primary">Make a Quote for {company}</Button>
             </Card.Body>
       </Card>
       </>
@@ -37,17 +36,25 @@ function CompanyTable(props) {
     const { array } = props;
     return (
         <>
-            <h2>Companies name</h2>
-
             <Container>
               <Row>
                 <Col>
+                <h2>Companies</h2>
+                <br />
+                <br />
                 <Masonry
-  breakpointCols={4}
-  className="my-masonry-grid"
-  columnClassName="my-masonry-grid_column">
-    {array.map(renderRow)}
-</Masonry>
+                    breakpointCols={4}
+                    className="my-masonry-grid"
+                    columnClassName="my-masonry-grid_column">
+                    {array.map(renderRow)}
+                </Masonry>
+                <br />
+                <Button
+                    variant="melon"
+                    type="submit"
+                    id="add"
+                    href="/home" >Back
+                </Button>
                 </Col>
               </Row>
             </Container>

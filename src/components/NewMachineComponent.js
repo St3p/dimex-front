@@ -5,6 +5,8 @@ import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import AuthNavBar from "./AuthNavBar";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+
 
 function NewMachineComponent(props) {
   const {
@@ -15,12 +17,13 @@ function NewMachineComponent(props) {
   return (
       <>
           <AuthNavBar />
-          <h1>Add New machine</h1>
-          <p>Please fill out this form</p>
-          <br />
           <Container>
           <Row>
             <Col>
+            <br />
+            <h1>Add machine</h1>
+            <p>Please fill out this form</p>
+            <br />
                 <Form>
                     <Form.Group>
                     <Form.Label>Machine</Form.Label>
@@ -91,15 +94,27 @@ function NewMachineComponent(props) {
           <br /><br />
           <Row>
           <Col>
+          <ButtonToolbar
+          className="justify-content-between">
+
           <Button
-                  variant="primary"
+                  variant="melon"
                   type="submit"
                   id="add"
-                  onClick={onSubmitClick}> Submit
+                  href="/home" >Back
           </Button>
 
+          <Button
+                  variant="melon"
+                  type="submit"
+                  id="add"
+                  onClick={onSubmitClick}> Next
+          </Button>
+          </ButtonToolbar>
+
           <br />
-          <Link to="/home">Back</Link>
+          <br />
+
           </Col>
         </Row>
 

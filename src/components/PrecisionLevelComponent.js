@@ -9,6 +9,10 @@ import Masonry from 'react-masonry-css'
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import Nav from "react-bootstrap/Nav";
+
+
 
 function PrecisionLevelComponent(props) {
     const { onSubmitClick, h7Hole, h8Hole, h9Hole, h11Hole,
@@ -24,13 +28,39 @@ function PrecisionLevelComponent(props) {
         <Container>
               <Row>
                 <Col>
+                < br />
+                <Nav justify variant="tabs" defaultActiveKey="/Precision">
+                  <Nav.Item>
+                    <Nav.Link eventKey="/company">Company</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="/material">Material</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="/machine">Machine</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="/criticPoints">Critic Points</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="/Precision">Precision</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="/resume">Resume</Nav.Link>
+                  </Nav.Item>
+                </Nav>
+                <br />
+                < br />
+                <h4>Presicion</h4>
+                <p>Please fill out this form</p>
+                <br />
                 <Masonry
                   breakpointCols={4}
                   className="my-masonry-grid"
                   columnClassName="my-masonry-grid_column">
 
                   <Card
-                        bg="primary"
+                        bg="secondary"
                         text="white ">
                    <Card.Header>H7</Card.Header>
                       <Card.Body>
@@ -54,7 +84,7 @@ function PrecisionLevelComponent(props) {
                          </Card>
 
                           <Card
-                                  bg="primary"
+                                  bg="secondary"
                                   text="white ">
                              <Card.Header>H8</Card.Header>
                                 <Card.Body>
@@ -79,7 +109,7 @@ function PrecisionLevelComponent(props) {
 
 
                    <Card
-                           bg="primary"
+                           bg="secondary"
                            text="white ">
                       <Card.Header>H9</Card.Header>
                          <Card.Body>
@@ -104,7 +134,7 @@ function PrecisionLevelComponent(props) {
 
 
                    <Card
-                           bg="primary"
+                           bg="secondary"
                            text="white ">
                       <Card.Header>H11</Card.Header>
                          <Card.Body>
@@ -128,7 +158,7 @@ function PrecisionLevelComponent(props) {
                    </Card>
 
                    <Card
-                           bg="primary"
+                           bg="secondary"
                            text="white ">
                       <Card.Header>h6</Card.Header>
                          <Card.Body>
@@ -152,7 +182,7 @@ function PrecisionLevelComponent(props) {
                    </Card>
 
                    <Card
-                           bg="primary"
+                           bg="secondary"
                            text="white ">
                       <Card.Header>h7</Card.Header>
                          <Card.Body>
@@ -176,7 +206,7 @@ function PrecisionLevelComponent(props) {
                    </Card>
 
                    <Card
-                           bg="primary"
+                           bg="secondary"
                            text="white ">
                       <Card.Header>h9</Card.Header>
                          <Card.Body>
@@ -200,7 +230,7 @@ function PrecisionLevelComponent(props) {
                    </Card>
 
                    <Card
-                           bg="primary"
+                           bg="secondary"
                            text="white ">
                       <Card.Header>h11</Card.Header>
                          <Card.Body>
@@ -228,18 +258,36 @@ function PrecisionLevelComponent(props) {
               </Row>
         </Container>
         <Container>
-              <Row>
-                <Col>
-                  <Button
-                          variant="primary"
-                          type="submit"
-                          id="add"
-                          onClick={()=>onSubmitClick( h7Hole, h8Hole, h9Hole, h11Hole,
-                          h6Axis, h7Axis, h9Axis, h11Axis)}> submit
+
+        <Row>
+        <Col >
+        < br />
+        < br />
+
+        <ButtonToolbar
+        className="justify-content-between">
+
+        <Button
+                variant="melon"
+                type="submit"
+                id="add"
+                href="/criticPoints" >Back
+        </Button>
+
+        <Button
+                variant="melon"
+                type="submit"
+                id="add"
+                onClick={()=>onSubmitClick( h7Hole, h8Hole, h9Hole, h11Hole,
+                h6Axis, h7Axis, h9Axis, h11Axis)}> Next
                  </Button>
-                 </Col>
-               </Row>
+        </ButtonToolbar>
+        <br />
+        <br />
+        </Col>
+      </Row>
          </Container>
+
         </>
     );
   }

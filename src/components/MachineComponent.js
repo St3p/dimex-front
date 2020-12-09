@@ -22,7 +22,6 @@ function MachineItem(props) {
             {description}
             {capacities}
             </Card.Text>
-      <Button href="/material" variant="primary">{machine}</Button>
             </Card.Body>
       </Card>
       </>
@@ -38,17 +37,25 @@ function MachineTable(props) {
     const { array } = props;
     return (
         <>
-            <h2>Machine</h2>
-
             <Container>
               <Row>
                 <Col>
+                <h1>Machines Available</h1>
+                <br />
+                <br />
                 <Masonry
-  breakpointCols={4}
-  className="my-masonry-grid"
-  columnClassName="my-masonry-grid_column">
-    {array.map(renderRow)}
-</Masonry>
+                      breakpointCols={4}
+                      className="my-masonry-grid"
+                      columnClassName="my-masonry-grid_column">
+                      {array.map(renderRow)}
+                </Masonry>
+                <br />
+                <Button
+                    variant="melon"
+                    type="submit"
+                    id="add"
+                    href="/home" >Back
+                </Button>
                 </Col>
               </Row>
             </Container>

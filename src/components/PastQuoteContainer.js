@@ -1,13 +1,12 @@
 import React, { Component } from "react";
+import PastQuoteComponent from "./PastQuoteComponent";
 
 
-class PastQuoteContainer extends Component{
+class PastQuoteConteiner extends Component{
   render(){
     return(
-      <>
-      <h1>quotes list</h1>
-      </>
+      <PastQuoteComponent/>
     );
   }
 }
-export default PastQuoteContainer;
+export default PastQuoteConteiner;

@@ -15,6 +15,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Masonry from 'react-masonry-css'
+import Nav from "react-bootstrap/Nav";
 
 
 function CompanyItem(props) {
@@ -31,7 +32,7 @@ function CompanyItem(props) {
             {description}
             </Card.Text>
       <Button
-          variant="primary"
+          variant="melon"
           onClick={()=>onClick(id, company)}>Make a Quote for {company}</Button>
             </Card.Body>
       </Card>
@@ -64,8 +65,33 @@ function QuoteComponent (props) {
           <Container>
             <Row>
               <Col>
-                <h1>Quotation Process</h1>
-              </Col>
+              < br />
+              <Nav justify variant="tabs" defaultActiveKey="/company">
+                <Nav.Item>
+                  <Nav.Link eventKey="/company">Company</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/material">Material</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/machineProcess">Machine</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/criticPoints">Critic Points</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/criticPoints">Precision</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/resume">Resume</Nav.Link>
+                </Nav.Item>
+              </Nav>
+              < br />
+              < br />
+                <h4>Chose a company</h4>
+              < br />
+              < br />
+             </Col>
             </Row>
           </Container>
           <Container>
@@ -84,7 +110,7 @@ function QuoteComponent (props) {
                                           the card's content.
                                         </Card.Text>
                                   <Button
-                                    variant="primary"
+                                    variant="melon"
                                     >Make a Quote for Rheem</Button>
                                         </Card.Body>
                                   </Card>
@@ -97,7 +123,8 @@ function QuoteComponent (props) {
                                           Some quick example text to build on the card title and make up the bulk of
                                           the card's content.
                                         </Card.Text>
-                                  <Button href="/material" variant="primary">Make a Quote for Volkswagen</Button>
+                                  <Button href="/material"
+                                          variant="melon">Make a Quote for Volkswagen</Button>
                                         </Card.Body>
                                   </Card>
 
@@ -109,7 +136,8 @@ function QuoteComponent (props) {
                                           Some quick example text to build on the card title and make up the bulk of
                                           the card's content.
                                         </Card.Text>
-                                  <Button href="/material" variant="primary">Make a Quote for Brose</Button>
+                                  <Button href="/material"
+                                          variant="melon">Make a Quote for Brose</Button>
                                         </Card.Body>
                                   </Card>
 
@@ -121,7 +149,8 @@ function QuoteComponent (props) {
                                           Some quick example text to build on the card title and make up the bulk of
                                           the card's content.
                                         </Card.Text>
-                                  <Button href="/material" variant="primary">Make a Quote for Honda</Button>
+                                  <Button href="/material"
+                                          variant="melon">Make a Quote for Honda</Button>
                                         </Card.Body>
                                   </Card>
                                   <Card>
@@ -132,7 +161,8 @@ function QuoteComponent (props) {
                                           Some quick example text to build on the card title and make up the bulk of
                                           the card's content.
                                         </Card.Text>
-                                  <Button href="/material" variant="primary">Make a Quote for Euro</Button>
+                                  <Button href="/material"
+                                          variant="melon">Make a Quote for Euro</Button>
                                         </Card.Body>
                                   </Card>
 
@@ -144,7 +174,8 @@ function QuoteComponent (props) {
                                           Some quick example text to build on the card title and make up the bulk of
                                           the card's content.
                                         </Card.Text>
-                                  <Button href="/material" variant="primary">Make a Quote for PG</Button>
+                                  <Button href="/material"
+                                          variant="melon">Make a Quote for PG</Button>
                                         </Card.Body>
                                   </Card>
 
@@ -156,7 +187,8 @@ function QuoteComponent (props) {
                                           Some quick example text to build on the card title and make up the bulk of
                                           the card's content.
                                         </Card.Text>
-                                  <Button href="/material" variant="primary">Make a Quote for PG</Button>
+                                  <Button href="/material"
+                                          variant="melon">Make a Quote for PG</Button>
                                         </Card.Body>
                                   </Card>
 
@@ -168,11 +200,22 @@ function QuoteComponent (props) {
                                           Some quick example text to build on the card title and make up the bulk of
                                           the card's content.
                                         </Card.Text>
-                                  <Button href="/material" variant="primary">Make a Quote for Nexteer</Button>
+                                  <Button href="/material"
+                                          variant="melon">Make a Quote for Nexteer</Button>
                                         </Card.Body>
                                   </Card>
                                   <CompanyTable onClick={onClick} array={companyArray} />
                   </Masonry>
+                  <br />
+                  <Button
+                      variant="melon"
+                      type="submit"
+                      id="add"
+                      href="/home" >Back
+                  </Button>
+                  <br />
+                  <br />
+                  <br />
                   </Col>
                 </Row>
           </Container>

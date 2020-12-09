@@ -16,6 +16,8 @@ function HomeComponents(){
     <AuthNavBar/>
     <Container>
     <Row>
+      < br />
+      < br />
       <Col> <h1>Home</h1></Col>
     </Row>
     <Row>
@@ -58,7 +60,7 @@ function HomeComponents(){
       <Card
             bg= "secondary"
             text="white">
-       <Card.Header>New Quote </Card.Header>
+       <Card.Header>Start Quote </Card.Header>
           <Card.Body>
           Make a new Quote taking into account the specifications of the component
           <br />

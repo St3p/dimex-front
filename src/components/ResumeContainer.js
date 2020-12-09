@@ -5,24 +5,12 @@ import Col from "react-bootstrap/Col";
 import Alert from "react-bootstrap/Alert";
 import { BrowserRouter, Link} from "react-router-dom";
 import AuthNavbar from "./AuthNavBar";
+import ResumeComponent from "./ResumeComponent"
 
 class ResumeContainer extends Component {
   render(){
       return (
-          <>
-          <AuthNavbar />
-          <Row>
-            <Col>
-            <h2>resume.</h2>
-           </Col>
-          </Row>
-            <Row>
-              <Col>
-              <h3><Link to="/home">finish</Link></h3>
-              </Col>
-            </Row>
-
-          </>
+        <ResumeComponent/>
       );
   }
 }

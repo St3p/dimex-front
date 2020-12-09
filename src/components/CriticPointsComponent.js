@@ -21,6 +21,9 @@ import Angularity from "./Tolerances/Angularity.jpg"
 import Position from "./Tolerances/Position.jpg"
 import Concentricity from "./Tolerances/concentricity.jpg"
 import Symmetry from "./Tolerances/Symmetry.jpg"
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import Nav from "react-bootstrap/Nav";
+
 
 function CriticPointsComponent(props) {
     const { onSubmitClick, addStraightness,
@@ -37,6 +40,32 @@ function CriticPointsComponent(props) {
           <Container>
                 <Row>
                   <Col>
+                  < br />
+                  <Nav justify variant="tabs" defaultActiveKey="/criticPoints">
+                    <Nav.Item>
+                      <Nav.Link eventKey="/company">Company</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="/material">Material</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="/machine">Machine</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="/criticPoints">Critic Points</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="/Precision">Precision</Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <Nav.Link eventKey="/resume">Resume</Nav.Link>
+                    </Nav.Item>
+                  </Nav>
+                  <br />
+                  < br />
+                  <h4>Critic Points </h4>
+                  <p>Please fill out this form</p>
+                  <br />
                   <Masonry
                     breakpointCols={4}
                     className="my-masonry-grid"
@@ -331,20 +360,46 @@ function CriticPointsComponent(props) {
                   </Col>
                 </Row>
           </Container>
-          <Container>
-                <Row>
-                  <Col>
-                    <Button
-                            variant="primary"
-                            type="submit"
-                            id="add"
-                            onClick={()=>onSubmitClick( straightness, flatness, circularity, cylindricity,
-                            profileLine, profileOfSurface, parallelism, perpendicularity, angularity,
-                            position, concentricity, symmetry )}> submit
+
+
+
+
+                   <Container>
+
+                   <Row>
+                   <Col >
+                   < br />
+                   < br />
+
+                   <ButtonToolbar
+                   className="justify-content-between">
+
+                   <Button
+                           variant="melon"
+                           type="submit"
+                           id="add"
+                           href="/machineProcess" >Back
                    </Button>
+
+                   <Button
+                           variant="melon"
+                           type="submit"
+                           id="add"
+                           onClick={()=>onSubmitClick(straightness, flatness, circularity, cylindricity,
+                           profileLine, profileOfSurface, parallelism, perpendicularity, angularity,
+                           position, concentricity, symmetry )}> Next
+                            </Button>
+                   </ButtonToolbar>
+                   < br />
+                   < br />
+
                    </Col>
                  </Row>
-           </Container>
+
+                    </Container>
+
+
+
           </>
       );
   }
