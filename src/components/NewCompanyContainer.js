@@ -10,7 +10,9 @@ class NewCompanyContainer extends Component {
             company: "",
             logo: "",
             description: "",
+            price: "",
         }
+        this.onPriceChange = this.onPriceChange.bind(this);
         this.onCompanyChange = this.onCompanyChange.bind(this);
         this.onlogoChange = this.onlogoChange.bind(this);
         this.onDescriptionChange = this.onDescriptionChange.bind(this);
@@ -18,6 +20,11 @@ class NewCompanyContainer extends Component {
         this.onSuccessCallbackFunc = this.onSuccessCallbackFunc.bind(this);
         this.onFailureCallbackFunc = this.onFailureCallbackFunc.bind(this);
     }
+    onPriceChange(e){
+      this.setState({
+          price: e.target.value,
+      });
+    };
 
     onCompanyChange(e) {
         this.setState({
@@ -39,11 +46,12 @@ class NewCompanyContainer extends Component {
 
 
     onSubmitClick(e) {
-        const { company, logo, description } = this.state;
+        const { company, logo, description, price } = this.state;
         const postData = {
             company: company,
             logo: logo,
             description: description,
+            price: price,
         };
         postCreateCompany(postData, this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
     }
@@ -58,12 +66,14 @@ class NewCompanyContainer extends Component {
     }
 
     render() {
-        const { company, logo, description } = this.state;
+        const { company, logo, description, price } = this.state;
         return (
             <NewCompanyComponent
+                price={price}
                 company={company}
                 logo={logo}
                 description={description}
+                onPriceChange={this.onPriceChange}
                 onCompanyChange={this.onCompanyChange}
                 onlogoChange={this.onlogoChange}
                 onDescriptionChange={this.onDescriptionChange}

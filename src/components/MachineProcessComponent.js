@@ -17,8 +17,8 @@ import Nav from "react-bootstrap/Nav";
 function MachineItem(props) {
     const { machine, foto, description, capacities, id } = props.item;
     const { onHoursChange, onSubmitClick, hoursObj } = props;
-    console.log();
     const hour = hoursObj [machine.id];
+    console.log(machine);
         return (
       <>
 

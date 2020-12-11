@@ -34,6 +34,7 @@ function CompanyTable(props) {
     }
 
     const { array } = props;
+    console.log(array);
     return (
         <>
             <Container>

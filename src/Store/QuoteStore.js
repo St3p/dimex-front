@@ -1,7 +1,7 @@
 const QUOTE_STEP1_KEY_ID = "quoteStepOneID";
 const QUOTE_STEP1_KEY_COMPANY = "quoteStepOneCompany"
 const QUOTE_STEP2_KEY_MATERIAL = "quoteStepTwoMaterial"
-const QUOTE_STEP3_KEY_MACHINE = "quoteStepThreeMaterial"
+const QUOTE_STEP3_KEY_MACHINE = "quoteStepThreeMachine"
 const QUOTE_STEP4_KEY_MACHINE = "quoteStepFourCritic"
 const Quote_STEP5_KEY_LEVEL = "quoteStepFiveLevel"
 
@@ -9,7 +9,6 @@ const QUOTE_STEP2_KEY_COST = "quoteStepTwoCost"
 const QUOTE_STEP2_KEY_DELIVERY = "quoteStepTwoDelivery"
 
 const QUOTE_STEP3_KEY_MACHINE_NAME = "quoteStepThreeMachineName"
-const QUOTE_STEP3_KEY_CAPACITIES = "quoteStepThreeCapacities"
 const QUOTE_STEP3_KEY_HOURS = "quoteStepThreeHours"
 
 const QUOTE_STEP4_KEY_FLATNESS = "quoteStepFourFlatness"
@@ -103,16 +102,6 @@ export function  step2WizardGetQuoteDelivery() {
   return delivery;
 }
 
-export function  step3WizardGetQuoteMachineName() {
-  const machine= localStorage.getItem(QUOTE_STEP3_KEY_MACHINE_NAME);
-  return machine;
-}
-
-export function  step3WizardGetQuoteCapacities() {
-  const capacities= localStorage.getItem(QUOTE_STEP3_KEY_CAPACITIES);
-  return capacities;
-}
-
 export function  step3WizardGetQuoteHours() {
   const hoursObjstring= localStorage.getItem(QUOTE_STEP3_KEY_HOURS);
   return JSON.parse(hoursObjstring);
@@ -179,37 +168,37 @@ export function  step4WizardGetQuoteH7Hole() {
   return h7Hole;
 }
 
-export function  step4WizardGetQuoteH8Hole() {
+export function  step5WizardGetQuoteH8Hole() {
   const h8Hole= localStorage.getItem(QUOTE_STEP5_KEY_H8HOLE);
   return h8Hole;
 }
 
-export function  step4WizardGetQuoteH9Hole() {
+export function  step5WizardGetQuoteH9Hole() {
   const h9Hole= localStorage.getItem(QUOTE_STEP5_KEY_H9HOLE);
   return h9Hole;
 }
 
-export function  step4WizardGetQuoteH11Hole() {
+export function  step5WizardGetQuoteH11Hole() {
   const h11Hole= localStorage.getItem(QUOTE_STEP5_KEY_H11HOLE);
   return h11Hole;
 }
 
-export function  step4WizardGetQuoteh6Axis() {
+export function  step5WizardGetQuoteh6Axis() {
   const h6Axis= localStorage.getItem(QUOTE_STEP5_KEY_H6AXIS);
   return h6Axis;
 }
 
-export function  step4WizardGetQuoteh7Axis() {
+export function  step5WizardGetQuoteh7Axis() {
   const h7Axis= localStorage.getItem(QUOTE_STEP5_KEY_H7AXIS);
   return h7Axis;
 }
 
-export function  step4WizardGetQuoteh9Axis() {
+export function  step5WizardGetQuoteh9Axis() {
   const h9Axis= localStorage.getItem(QUOTE_STEP5_KEY_H9AXIS);
   return h9Axis;
 }
 
-export function  step4WizardGetQuoteh11Axis() {
+export function  step5WizardGetQuoteh11Axis() {
   const h11Axis= localStorage.getItem(QUOTE_STEP5_KEY_H11AXIS);
   return h11Axis;
 }

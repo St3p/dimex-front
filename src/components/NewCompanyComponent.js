@@ -9,9 +9,9 @@ import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 
 function NewCompanyComponent(props) {
     const {
-         company, logo, description,
+         company, logo, description, price,
 
-         onCompanyChange,onlogoChange, onDescriptionChange, onSubmitClick
+         onCompanyChange,onlogoChange, onDescriptionChange, onSubmitClick, onPriceChange
      } = props;
     return (
         <>
@@ -22,7 +22,7 @@ function NewCompanyComponent(props) {
               <h1>Add New Company</h1>
               <p>Please fill out this form</p>
               <br />
-              
+
                   <Form>
                       <Form.Group controlId="formBasicEmail">
                       <Form.Label>Company</Form.Label>
@@ -71,6 +71,23 @@ function NewCompanyComponent(props) {
                               </Form>
                           </Col>
                         </Row>
+
+                        <Row>
+                          <Col>
+                              <Form>
+                                  <Form.Group>
+                                  <Form.Label>Price per hour</Form.Label>
+                                  <Form.Control type="text"
+                                                placeholder="price"
+                                                onChange={onPriceChange}
+                                                value={price}
+                                                id="price"
+                                                name="price"
+                                                />
+                                  </Form.Group>
+                                  </Form>
+                              </Col>
+                            </Row>
 
             <br />
             <br /><br />
