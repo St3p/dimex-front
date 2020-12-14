@@ -10,9 +10,9 @@ import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 
 function NewMachineComponent(props) {
   const {
-       machine, foto, description, capacities,
+       machine, foto, description, capacities, price,
 
-       onMachineChange, onfotoChange, onDescriptionChange, onCapacitiesChange, onSubmitClick
+       onMachineChange, onfotoChange, onDescriptionChange, onCapacitiesChange, onSubmitClick, onPriceChange
    } = props;
   return (
       <>
@@ -89,6 +89,23 @@ function NewMachineComponent(props) {
                                 </Form>
                             </Col>
                           </Row>
+
+                          <Row>
+                            <Col>
+                                <Form>
+                                    <Form.Group>
+                                    <Form.Label>Price per hour</Form.Label>
+                                    <Form.Control type="text"
+                                                  placeholder="price"
+                                                  onChange={onPriceChange}
+                                                  value={price}
+                                                  id="price"
+                                                  name="price"
+                                                  />
+                                    </Form.Group>
+                                    </Form>
+                                </Col>
+                              </Row>
 
           <br />
           <br /><br />

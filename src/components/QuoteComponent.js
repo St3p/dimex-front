@@ -1,13 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Rheem from "./img/rheem.png";
-import Volkswagen from "./img/volkswagen.png";
-import Brose from "./img/brose.jpg";
-import Honda from "./img/honda.png";
-import Euro from "./img/euro.png";
-import Pg from "./img/pg.png";
-import Cat from "./img/cat.jpg";
-import Nexteer from "./img/nexteer.jpg";
 import AuthNavBar from "./AuthNavBar";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";

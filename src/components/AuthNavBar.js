@@ -24,7 +24,7 @@ function AnonNavBar(){
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link href="/home">Home</Nav.Link>
-          <Nav.Link href="/login">Logout</Nav.Link>
+          <Nav.Link href="/">Logout</Nav.Link>
           <Nav.Link href="/quote">Start Quote</Nav.Link>
         </Nav>
       </Navbar.Collapse>

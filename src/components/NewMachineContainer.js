@@ -11,7 +11,9 @@ class NewMachineContainer extends Component{
           foto: "",
           description: "",
           capacities: "",
+          price: "",
       }
+      this.onPriceChange = this.onPriceChange.bind(this);
       this.onMachineChange = this.onMachineChange.bind(this);
       this.onfotoChange = this.onfotoChange.bind(this);
       this.onDescriptionChange = this.onDescriptionChange.bind(this);
@@ -19,6 +21,11 @@ class NewMachineContainer extends Component{
       this.onSubmitClick = this.onSubmitClick.bind(this);
       this.onSuccessCallbackFunc = this.onSuccessCallbackFunc.bind(this);
       this.onFailureCallbackFunc = this.onFailureCallbackFunc.bind(this);
+  }
+  onPriceChange(e){
+    this.setState({
+      price: e.target.value,
+    });
   }
 
   onMachineChange(e) {
@@ -46,13 +53,13 @@ class NewMachineContainer extends Component{
   };
 
   onSubmitClick(e) {
-      const { machine, foto, description, capacities } = this.state;
+      const { machine, foto, description, capacities, price } = this.state;
       const postData = {
           machine: machine,
           foto: foto,
           description: description,
           capacities: capacities,
-
+          price: price,
       };
       postCreateMachine(postData, this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
   }
@@ -68,7 +75,7 @@ class NewMachineContainer extends Component{
 
 
   render() {
-      const { machine, foto, description, capacities } = this.state;
+      const { machine, foto, description, capacities, price } = this.state;
       return (
           <NewMachineComponent
               machine={machine}
@@ -80,6 +87,7 @@ class NewMachineContainer extends Component{
               onCapacitiesChange={this.onCapacitiesChange}
               onDescriptionChange={this.onDescriptionChange}
               onSubmitClick={this.onSubmitClick}
+              onPriceChange={this.onPriceChange}
           />
       );
   }
