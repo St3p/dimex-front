@@ -25,24 +25,27 @@ function MaterialComponent(props) {
               < br />
               <Nav justify variant="tabs" defaultActiveKey="/material">
               <Nav.Item>
-                <Nav.Link href="/quote" >1. Company</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/material" >2. Material</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/machineProcess" disabled>3. Machine</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/criticPoints" disabled>4. Critic Points</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/criticPoints" disabled>5. Precision</Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link eventKey="/resume" disabled>6. Finalize</Nav.Link>
-              </Nav.Item>
-            </Nav>
+              <Nav.Link href="/component" >1. Component</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/quote" >2. Company</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link href="/material"><strong>3. Material</strong></Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="/machineProcess" disabled>4. Machine</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="/criticPoints" disabled>5. Critic Points</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="/criticPoints" disabled>6. Precision</Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="/resume" disabled>7. Finalize</Nav.Link>
+            </Nav.Item>
+          </Nav>
               < br />
               < br />
               <h4>Material</h4>

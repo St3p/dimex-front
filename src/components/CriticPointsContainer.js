@@ -24,7 +24,7 @@ class CriticPointsContainer extends Component {
         angularity:"",
         position:"",
         concentricity:"",
-        symmetry:"",
+        simetria:"",
       }
       this.onProfileLineChange = this.onProfileLineChange.bind(this);
       this.oncylindricityChange = this.oncylindricityChange.bind(this);
@@ -38,7 +38,7 @@ class CriticPointsContainer extends Component {
       this.onAngularityChange = this.onAngularityChange.bind(this);
       this.onPositionChange = this.onPositionChange.bind(this);
       this.onConcentricityChange = this.onConcentricityChange.bind(this);
-      this.onSymmetryChange = this.onSymmetryChange.bind(this);
+      this.onSimetriaChange = this.onSimetriaChange.bind(this);
 
   }
   onStraightnessChange(e) {
@@ -106,15 +106,15 @@ class CriticPointsContainer extends Component {
         });
     };
 
-    onSymmetryChange(e) {
+    onSimetriaChange(e) {
         this.setState({
-            symmetry: 150,
+            simetria: 150,
         });
     };
   onSubmitClick(e) {
     const { flatness, straightness, circularity, cylindricity,
             profileLine, profileOfSurface, parallelism, perpendicularity,
-            angularity, position, concentricity, symmetry} = this.state;
+            angularity, position, concentricity, simetria} = this.state;
     const postData = {
         straightness: straightness,
         flatness: flatness,
@@ -127,20 +127,20 @@ class CriticPointsContainer extends Component {
         angularity:angularity,
         position:position,
         concentricity:concentricity,
-        symmetry:symmetry,
+        simetria:simetria,
     };
     console.log(postData);
    step4WizardSetQuote(flatness, straightness, circularity,
    cylindricity, profileLine, profileOfSurface, parallelism,
    perpendicularity, angularity, position, concentricity,
-   symmetry);
+   simetria);
    this.props.history.push("/presicionLevel");
 }
 
   render(){
     const { straightness, flatness, circularity, cylindricity,
             profileLine, profileOfSurface, parallelism, perpendicularity,
-            angularity, position, concentricity, symmetry
+            angularity, position, concentricity, simetria
            } = this.state;
       return (
           <CriticPointsComponent
@@ -156,8 +156,8 @@ class CriticPointsContainer extends Component {
               onAngularityChange={this.onAngularityChange}
               onPositionChange={this.onPositionChange}
               onConcentricityChange={this.onConcentricityChange}
-              onSymmetryChange={this.onSymmetryChange}
-              symmetry={symmetry}
+              onSimetriaChange={this.onSimetriaChange}
+              simetria={simetria}
               concentricity={concentricity}
               position={position}
               angularity={angularity}

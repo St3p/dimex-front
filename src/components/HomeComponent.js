@@ -65,7 +65,7 @@ function HomeComponents(){
           Make a new Quote taking into account the specifications of the component
           <br />
           <br />
-          <Button href="/quote"
+          <Button href="/component"
                   variant="melon"> click me
           </Button>
           </Card.Body>

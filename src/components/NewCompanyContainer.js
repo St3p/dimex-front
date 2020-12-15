@@ -58,7 +58,7 @@ class NewCompanyContainer extends Component {
 
     onSuccessCallbackFunc(responseData) {
         alert(responseData.message);
-        this.props.history.push("/quote");
+        this.props.history.push("/companies");
     }
 
     onFailureCallbackFunc(responseData) {

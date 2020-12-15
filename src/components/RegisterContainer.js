@@ -34,6 +34,8 @@ class RegisterContainer extends Component{
 
   onSuccess(responseData){
     alert(responseData.message);
+    this.props.history.push("/");
+
   }
 
   onFailure(responseData){
@@ -47,6 +49,7 @@ class RegisterContainer extends Component{
       password: password,
     };
     postRegister(postData, this.onSuccess, this.onFailure)
+    this.props.history.push("/");
 }
 
 

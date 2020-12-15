@@ -15,13 +15,15 @@ import Nav from "react-bootstrap/Nav";
 
 
 function MachineItem(props) {
-    const { machine, foto, description, capacities, id } = props.item;
+  const { machine, foto, description, capacities, id } = props.item;
     const { onHoursChange, onSubmitClick, hoursObj } = props;
-    const hour = hoursObj [machine.id];
-    console.log(machine);
+    const hour = hoursObj[id];
+    console.log("MachineItem | hoursObj:", hoursObj);
+    console.log("MachineItem | id:", id);
+    console.log("MachineItem | machine:", machine);
+    console.log("MachineItem | hour:", hour);
         return (
       <>
-
       <Card>
       <Card.Img variant="top" src={foto} />
           <Card.Body>
@@ -82,11 +84,11 @@ const { onSubmitClick, onHoursChange, hoursObj, machine, capacities } = props;
             breakpointCols={4}
             className="my-masonry-grid"
             columnClassName="my-masonry-grid_column">
-    {array.map(renderRow)}
-    </Masonry>
-    </Col>
-  </Row>
-</Container>
+            {array.map(renderRow)}
+          </Masonry>
+        </Col>
+       </Row>
+  </Container>
 
         </>
     );
@@ -104,25 +106,28 @@ function MachineProcessComponent(props) {
             <Col>
             < br />
             <Nav justify variant="tabs" defaultActiveKey="/machineProcess">
-            <Nav.Item>
-              <Nav.Link href="/quote" >1. Company</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/material" >2. Material</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link href="/machineProcess" >3. Machine</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="/criticPoints" disabled>4. Critic Points</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="/criticPoints" disabled>5. Precision</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link eventKey="/resume" disabled>6. Finalize</Nav.Link>
-            </Nav.Item>
-          </Nav>
+          <Nav.Item>
+            <Nav.Link href="/component" >1. Component</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/quote" >2. Company</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/material"  >3. Material</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/machineProcess" ><strong>4. Machine</strong></Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="/criticPoints" disabled>5. Critic Points</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="/criticPoints" disabled>6. Precision</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="/resume" disabled>7. Finalize</Nav.Link>
+          </Nav.Item>
+        </Nav>
                   <MachineTable onSubmitClick={onSubmitClick} array={machineArray}
                    onHoursChange={onHoursChange} hoursObj={hoursObj} machine={machine}
                    capacities={capacities}/>

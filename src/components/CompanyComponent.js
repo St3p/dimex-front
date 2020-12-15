@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Masonry from 'react-masonry-css'
 import AuthNavbar from "./AuthNavBar";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 
 
 function CompanyItem(props) {
@@ -43,6 +44,26 @@ function CompanyTable(props) {
                 <h2>Companies</h2>
                 <br />
                 <br />
+                </Col>
+                <Col>
+                <ButtonToolbar
+                className="justify-content-between">
+                <Button
+                        variant="melon"
+                        type="submit"
+                        id="add"
+                        href="/newCompany" >+
+                </Button>
+                </ButtonToolbar>
+
+                <br />
+                <br />
+                </Col>
+                </Row>
+                </Container>
+                <Container>
+                <Row>
+                <Col>
                 <Masonry
                     breakpointCols={4}
                     className="my-masonry-grid"

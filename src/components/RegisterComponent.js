@@ -9,6 +9,7 @@ import AnonNavBar from "./AnonNavBar"
 import Masonry from 'react-masonry-css'
 import LogoEXP from "./Carusel/logoEXP.png";
 import Form from "react-bootstrap/Form";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 
 
 
@@ -42,6 +43,9 @@ function RegisterComponent (props){
                 }
                 </Col>
               </Row>
+              < br />
+              < br />
+
               <Row>
                 <Col>
                     <Form>
@@ -65,13 +69,30 @@ function RegisterComponent (props){
                                    value={password}
                                    type="text" />
                      </Form.Group>
-
-                      <Button
-                        onClick={onClick}>  Submit
-                      </Button>
                         </Form>
-                  <Alert.Link href="/login">login</Alert.Link>
               </Col>
+            </Row>
+
+            <Row>
+            <Col>
+            <ButtonToolbar
+            className="justify-content-between">
+
+            <Button
+                    variant="melon"
+                    type="submit"
+                    id="add"
+                    href="/" >Back
+            </Button>
+
+            <Button
+                    variant="melon"
+                    type="submit"
+                    id="add"
+                    onClick={onClick}> Submit
+                     </Button>
+            </ButtonToolbar>
+            </Col>
             </Row>
           </Container>
           </Masonry>

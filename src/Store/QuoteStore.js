@@ -1,9 +1,14 @@
 const QUOTE_STEP1_KEY_ID = "quoteStepOneID";
+const QUOTE_STEP0_KEY_COMPONENT = "quoteStepZeroComponent"
 const QUOTE_STEP1_KEY_COMPANY = "quoteStepOneCompany"
 const QUOTE_STEP2_KEY_MATERIAL = "quoteStepTwoMaterial"
 const QUOTE_STEP3_KEY_MACHINE = "quoteStepThreeMachine"
 const QUOTE_STEP4_KEY_MACHINE = "quoteStepFourCritic"
 const Quote_STEP5_KEY_LEVEL = "quoteStepFiveLevel"
+
+const QUOTE_STEP0_KEY_NAME_COMPONENT = "quoteStepZeroNameComponent"
+const QUOTE_STEP0_KEY_QUANTITY = "quoteStepZeroQuantity"
+
 
 const QUOTE_STEP2_KEY_COST = "quoteStepTwoCost"
 const QUOTE_STEP2_KEY_DELIVERY = "quoteStepTwoDelivery"
@@ -20,7 +25,7 @@ const QUOTE_STEP4_KEY_PARALLELISM = "quoteStepFourParallelism"
 const QUOTE_STEP4_KEY_PERPENTICULARITY = "quoteStepFourPerpendicularity"
 const QUOTE_STEP4_KEY_ANGULARITY = "quoteStepFourAngularity"
 const QUOTE_STEP4_KEY_PROFILEOFASURFACE = "quoteStepFourProfileOfSurface"
-const QUOTE_STEP4_KEY_SYMMETRY = "quoteStepFourSymmetry"
+const QUOTE_STEP4_KEY_SIMETRIA = "quoteStepFourSimetria"
 const QUOTE_STEP4_KEY_CONCENTRICITY = "quoteStepFourConcentricity"
 
 const QUOTE_STEP5_KEY_H7HOLE = "quoteStepFiveH7Hole"
@@ -32,6 +37,10 @@ const QUOTE_STEP5_KEY_H7AXIS = "quoteStepFiveH7Axis"
 const QUOTE_STEP5_KEY_H9AXIS = "quoteStepFiveH9Axis"
 const QUOTE_STEP5_KEY_H11AXIS = "quoteStepFiveH11Axis"
 
+export function step0WizardSetQuote (nameComponent, quantity){
+  localStorage.setItem(QUOTE_STEP0_KEY_NAME_COMPONENT , nameComponent);
+  localStorage.setItem(QUOTE_STEP0_KEY_QUANTITY , quantity);
+}
 
 export function step1WizardSetQuote (id, company){
   localStorage.setItem(QUOTE_STEP1_KEY_ID, id);
@@ -51,7 +60,7 @@ export function step3WizardSetQuote ( hoursObj){
 }
 
 export function step4WizardSetQuote ( flatness, straightness, circularity, cylindricity, profileLine,
-  parallelism, perpendicularity, angularity, profileOfSurface, symmetry, concentricity ){
+  parallelism, perpendicularity, angularity, profileOfSurface, simetria, concentricity ){
   localStorage.setItem(QUOTE_STEP4_KEY_FLATNESS, flatness);
   localStorage.setItem(QUOTE_STEP4_KEY_STRAIGHTNESS, straightness);
   localStorage.setItem(QUOTE_STEP4_KEY_CIRCULARITY, circularity);
@@ -61,7 +70,7 @@ export function step4WizardSetQuote ( flatness, straightness, circularity, cylin
   localStorage.setItem(QUOTE_STEP4_KEY_PERPENTICULARITY, perpendicularity);
   localStorage.setItem(QUOTE_STEP4_KEY_ANGULARITY, angularity);
   localStorage.setItem(QUOTE_STEP4_KEY_PROFILEOFASURFACE, profileOfSurface);
-  localStorage.setItem(QUOTE_STEP4_KEY_SYMMETRY, symmetry);
+  localStorage.setItem(QUOTE_STEP4_KEY_SIMETRIA, simetria);
   localStorage.setItem(QUOTE_STEP4_KEY_CONCENTRICITY, concentricity);
 }
 
@@ -78,6 +87,17 @@ export function step5WizardSetQuote ( h7Hole, h8Hole, h9Hole, h11Hole,
 
 
 }
+
+export function  step0WizardGetQuotEQuantity() {
+  const quantity= localStorage.getItem(QUOTE_STEP0_KEY_QUANTITY);
+  return quantity;
+}
+
+export function  step0WizardGetQuoteNameComponent() {
+  const nameComponent= localStorage.getItem(QUOTE_STEP0_KEY_NAME_COMPONENT);
+  return nameComponent;
+}
+
 
 export function  step1WizardGetQuoteID() {
   const id= localStorage.getItem(QUOTE_STEP1_KEY_ID);
@@ -153,9 +173,9 @@ export function  step4WizardGetQuoteProfileofaSurface() {
   return profileOfSurface;
 }
 
-export function  step4WizardGetQuoteSymmetry() {
-  const symmetry= localStorage.getItem(QUOTE_STEP4_KEY_SYMMETRY);
-  return symmetry;
+export function  step4WizardGetQuoteSimetria() {
+  const simetria= localStorage.getItem(QUOTE_STEP4_KEY_SIMETRIA);
+  return simetria;
 }
 
 export function  step4WizardGetQuoteConcentricity() {

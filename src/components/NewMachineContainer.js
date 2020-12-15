@@ -66,7 +66,7 @@ class NewMachineContainer extends Component{
 
   onSuccessCallbackFunc(responseData) {
       alert(responseData.message);
-      this.props.history.push("/quote");
+      this.props.history.push("/machine");
   }
 
   onFailureCallbackFunc(responseData) {

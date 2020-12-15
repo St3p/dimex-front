@@ -31,22 +31,25 @@ function PrecisionLevelComponent(props) {
                 < br />
                 <Nav justify variant="tabs" defaultActiveKey="/presicionLevel">
                 <Nav.Item>
-                  <Nav.Link href="/quote" >1. Company</Nav.Link>
+                  <Nav.Link href="/component" >1. Component</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="/material" >2. Material</Nav.Link>
+                  <Nav.Link href="/quote" >2. Company</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="/machineProcess" >3. Machine</Nav.Link>
+                  <Nav.Link href="/material"  >3. Material</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="/criticPoints" >4. Critic Points</Nav.Link>
+                  <Nav.Link href="/machineProcess" >4. Machine</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="/presicionLevel" >5. Precision</Nav.Link>
+                  <Nav.Link href="/criticPoints" >5. Critic Points</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey="/resume" disabled>6. Finalize</Nav.Link>
+                  <Nav.Link href="/presicionLevel" ><strong>6. Precision</strong></Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link eventKey="/resume" disabled>7. Finalize</Nav.Link>
                 </Nav.Item>
               </Nav>
                 <br />

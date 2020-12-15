@@ -7,6 +7,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Masonry from 'react-masonry-css'
 import AuthNavbar from "./AuthNavBar";
+import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+
 
 
 function MachineItem(props) {
@@ -43,6 +45,29 @@ function MachineTable(props) {
                 <h1>Machines Available</h1>
                 <br />
                 <br />
+                </Col>
+                <Col>
+                </Col>
+                <Col>
+                </Col>
+                <Col>
+                <ButtonToolbar
+                className="justify-content-between">
+                <Button
+                        variant="melon"
+                        type="submit"
+                        id="add"
+                        href="/newMachine" >+
+                </Button>
+                </ButtonToolbar>
+                <br />
+                <br />
+                </Col>
+                </Row>
+                </Container>
+                <Container>
+                <Row>
+                <Col>
                 <Masonry
                       breakpointCols={4}
                       className="my-masonry-grid"

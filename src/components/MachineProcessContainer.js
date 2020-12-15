@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { getDataCard } from "../API/NewMachineAPI";
 import MachineProcessComponent from "./MachineProcessComponent";
-import { step3WizardSetQuote } from "../Store/QuoteStore";
+import { step3WizardSetQuote, step3WizardGetQuoteHours } from "../Store/QuoteStore";
 
 
 
@@ -10,7 +10,7 @@ class MachineProcessContainer extends Component {
       super(props);
       this.state = {
           machineArray: [],
-          hoursObj:{},
+          hoursObj: step3WizardGetQuoteHours(),
       }
       this.onHoursChange = this.onHoursChange.bind(this);
       this.onSubmitClick = this.onSubmitClick.bind(this);
@@ -26,6 +26,7 @@ class MachineProcessContainer extends Component {
   onFailureCallbackFunc(responseData) {
       console.log(responseData);
   }
+
   componentDidMount() {
       getDataCard(this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
   }
@@ -42,7 +43,6 @@ class MachineProcessContainer extends Component {
     const {hoursObj} = this.state;
     step3WizardSetQuote( hoursObj );
     this.props.history.push("/criticPoints");
-
   }
 
   render() {

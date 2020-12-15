@@ -43,7 +43,28 @@ const { onClick } = props;
     const { array } = props;
     return (
         <>
+    <Container>
+     <Row>
+      <Col>
+        <h4>Chose a company</h4>
+      < br />
+      < br />
+     </Col>
+    </Row>
+  </Container>
+  <Container>
+        <Row>
+          <Col>
+          <Masonry
+            breakpointCols={4}
+            className="my-masonry-grid"
+            columnClassName="my-masonry-grid_column">
     {array.map(renderRow)}
+    </Masonry>
+    </Col>
+   </Row>
+ </Container>
+    <br />
         </>
     );
 }
@@ -58,49 +79,39 @@ function QuoteComponent (props) {
             <Row>
               <Col>
               < br />
-              <Nav justify variant="tabs" defaultActiveKey="/company">
+              <Nav justify variant="tabs" defaultActiveKey="/quote">
                 <Nav.Item>
-                  <Nav.Link eventKey="/company" >1. Company</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="/material" disabled>2. Material</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="/machineProcess" disabled>3. Machine</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="/criticPoints" disabled>4. Critic Points</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="/criticPoints" disabled>5. Precision</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link eventKey="/resume" disabled>6. Finalize</Nav.Link>
-                </Nav.Item>
-              </Nav>
+                <Nav.Link href="/component" >1. Component</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="/quote" ><strong>2. Company</strong></Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="/material" disabled >3. Material</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="/machineProcess" disabled>4. Machine</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="/criticPoints" disabled>5. Critic Points</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="/criticPoints" disabled>6. Precision</Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="/resume" disabled>7. Finalize</Nav.Link>
+              </Nav.Item>
+            </Nav>
               < br />
               < br />
-                <h4>Chose a company</h4>
-              < br />
-              < br />
-             </Col>
-            </Row>
-          </Container>
-          <Container>
-                <Row>
-                  <Col>
-                  <Masonry
-                    breakpointCols={4}
-                    className="my-masonry-grid"
-                    columnClassName="my-masonry-grid_column">
+
                                   <CompanyTable onClick={onClick} array={companyArray} />
-                  </Masonry>
-                  <br />
+
                   <Button
                       variant="melon"
                       type="submit"
                       id="add"
-                      href="/home" >Back
+                      href="/component" >Back
                   </Button>
                   <br />
                   <br />

@@ -12,11 +12,12 @@ import { step1WizardGetQuoteID, step1WizardGetQuoteCompany,
   step4WizardGetQuoteStraigtness, step4WizardGetQuoteCylindricity,
   step4WizardGetQuoteCircularity, step4WizardGetQuoteProfileLine,
   step4WizardGetQuotePerpendicularity, step4WizardGetQuoteAngularity,
-  step4WizardGetQuoteProfileofaSurface, step4WizardGetQuoteSymmetry,
+  step4WizardGetQuoteProfileofaSurface, step4WizardGetQuoteSimetria,
   step4WizardGetQuoteConcentricity, step4WizardGetQuoteParallelism,
   step5WizardGetQuoteH8Hole, step5WizardGetQuoteH9Hole,
   step5WizardGetQuoteH11Hole, step5WizardGetQuoteh6Axis, step5WizardGetQuoteh7Axis,
-  step5WizardGetQuoteh9Axis, step5WizardGetQuoteh11Axis
+  step5WizardGetQuoteh9Axis, step5WizardGetQuoteh11Axis, step0WizardGetQuotEQuantity,
+  step0WizardGetQuoteNameComponent
   } from "../Store/QuoteStore"
 import { getDataCard } from "../API/NewMachineAPI";
 
@@ -26,7 +27,7 @@ class ResumeContainer extends Component {
   this.state = {
     companyId: step1WizardGetQuoteID(),
     companyName: step1WizardGetQuoteCompany(),
-    hoursObj: [step3WizardGetQuoteHours()],
+    hoursObj: step3WizardGetQuoteHours(),
     materialCost: step2WizardGetQuoteCost(),
     materialName: step2WizardGetQuoteMaterial(),
 
@@ -39,7 +40,7 @@ class ResumeContainer extends Component {
     perpendicularity: step4WizardGetQuotePerpendicularity(),
     angularity: step4WizardGetQuoteAngularity(),
     profileOfSurface: step4WizardGetQuoteProfileofaSurface(),
-    symmetry: step4WizardGetQuoteSymmetry(),
+    simetria: step4WizardGetQuoteSimetria(),
     concentricity: step4WizardGetQuoteConcentricity(),
 
     h8Hole: step5WizardGetQuoteH8Hole(),
@@ -50,6 +51,9 @@ class ResumeContainer extends Component {
     h7Axis: step5WizardGetQuoteh7Axis(),
     h9Axis: step5WizardGetQuoteh9Axis(),
     h11Axis: step5WizardGetQuoteh11Axis(),
+
+    quantity: step0WizardGetQuotEQuantity(),
+    nameComponent:step0WizardGetQuoteNameComponent(),
 
     machineArray: [],
   }
@@ -72,10 +76,14 @@ componentDidMount() {
        circularity, cylindricity, profileLine, parallelism,
        perpendicularity, angularity, profileOfSurface,
        symmetry, concentricity, h7Hole, h8Hole, h9Hole,
-       h11Hole, h6Axis, h7Axis, h9Axis, h11Axis} = this.state;
+       h11Hole, h6Axis, h7Axis, h9Axis, h11Axis, quantity,
+       nameComponent} = this.state;
       return (
 
         <ResumeComponent
+          nameComponent={nameComponent}
+          quantity={quantity}
+
           machineArray={machineArray}
           companyId= {companyId}
           companyName={companyName}

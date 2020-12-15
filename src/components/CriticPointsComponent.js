@@ -28,11 +28,11 @@ import Nav from "react-bootstrap/Nav";
 function CriticPointsComponent(props) {
     const { onSubmitClick, addStraightness,
             straightness, flatness, circularity,cylindricity, profileLine, profileOfSurface,
-            parallelism, perpendicularity, angularity, position, concentricity, symmetry,
+            parallelism, perpendicularity, angularity, position, concentricity, simetria,
 
             onStraightnessChange, onFlatnessChange, onCircularityChange, oncylindricityChange,
             onProfileLineChange, onProfileOfSurfaceChange, onParallelismChange, onPerpendicularityChange,
-            onAngularityChange, onPositionChange, onConcentricityChange, onSymmetryChange
+            onAngularityChange, onPositionChange, onConcentricityChange, onSimetriaChange
           } = props;
     return (
         <>
@@ -43,22 +43,25 @@ function CriticPointsComponent(props) {
                   < br />
                   <Nav justify variant="tabs" defaultActiveKey="/criticPoints">
                   <Nav.Item>
-                    <Nav.Link href="/quote" >1. Company</Nav.Link>
+                    <Nav.Link href="/component" >1. Component</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link href="/material" >2. Material</Nav.Link>
+                    <Nav.Link href="/quote" >2. Company</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link href="/machineProcess" >3. Machine</Nav.Link>
+                    <Nav.Link href="/material"  >3. Material</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link href="/criticPoints" >4. Critic Points</Nav.Link>
+                    <Nav.Link href="/machineProcess" >4. Machine</Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="/presicionLevel" disabled>5. Precision</Nav.Link>
+                    <Nav.Link href="/criticPoints" ><strong>5. Critic Points</strong></Nav.Link>
                   </Nav.Item>
                   <Nav.Item>
-                    <Nav.Link eventKey="/resume" disabled>6. Finalize</Nav.Link>
+                    <Nav.Link eventKey="/presicionLevel" disabled>6. Precision</Nav.Link>
+                  </Nav.Item>
+                  <Nav.Item>
+                    <Nav.Link eventKey="/resume" disabled>7. Finalize</Nav.Link>
                   </Nav.Item>
                 </Nav>
                   <br />
@@ -344,10 +347,10 @@ function CriticPointsComponent(props) {
                                                  id={`check-api-${type}`}>
                                        <Form.Check.Input
                                                  type={type}
-                                                 onChange={onSymmetryChange}
-                                                 value={symmetry}
-                                                 id="symmetry"
-                                                 name="symmetry"/>
+                                                 onChange={onSimetriaChange}
+                                                 value={simetria}
+                                                 id="simetria"
+                                                 name="simetria"/>
                                        <Form.Check.Label>{`Add`}</Form.Check.Label>
                                      </Form.Check>
                                    </div>
@@ -387,7 +390,7 @@ function CriticPointsComponent(props) {
                            id="add"
                            onClick={()=>onSubmitClick(straightness, flatness, circularity, cylindricity,
                            profileLine, profileOfSurface, parallelism, perpendicularity, angularity,
-                           position, concentricity, symmetry )}> Next
+                           position, concentricity, simetria )}> Next
                             </Button>
                    </ButtonToolbar>
                    < br />
