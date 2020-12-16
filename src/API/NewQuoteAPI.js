@@ -24,9 +24,7 @@ export function postCreateQuote(postData, onSuccessCallbackFunc, onFailureCallba
 
     // Convert the TEXT data into an ARRAY
     const arrayData = JSON.parse(textData);
-    //Add ID.
-    postData["id"]= arrayData.lenght + 1;
-    
+
     // Push the `postData` into our ARRAY
     arrayData.push(postData);
 
@@ -63,4 +61,28 @@ export function getDataCard(onSuccessCallbackFunc, onFailureCallbackFunc) {
         results: arrayData,
     };
     onSuccessCallbackFunc(responseData);
+}
+
+export function getQuoteCount(onSuccessCallbackFunc, onFailureCallbackFunc){
+  let textData = localStorage.getItem(QUOTE_KEY);
+
+  // If TEXT data is null:
+  if (textData === null) {
+      // a. Create an empty ARRAY
+      const emptyArray = [];
+
+      // b. Convert the ARRAY to TEXT
+      textData = JSON.stringify(emptyArray)
+
+      // c. Save the TEXT to localStorage
+      localStorage.setItem(QUOTE_KEY, textData)
+  }
+
+  // Convert the TEXT to ARRAY
+  const arrayData = JSON.parse(textData);
+
+  const responseData = {
+      results: arrayData.length,
+  };
+  onSuccessCallbackFunc(responseData);
 }

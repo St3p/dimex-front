@@ -21,8 +21,6 @@ import StepFourSection from "./StepFourSection"
 import StepFiveSection from "./StepFiveSection"
 import StepZeroSection from "./StepZeroSection"
 
-
-
 function ResumeComponent(props) {
   const { companyId, companyName, companyPrice, machineArray, hoursObj, machine,
           materialCost, materialName, flatness, straightness,
@@ -30,7 +28,7 @@ function ResumeComponent(props) {
           perpendicularity, angularity, profileOfSurface,
           symmetry, concentricity, h7Hole, h8Hole, h9Hole,
           h11Hole, h6Axis, h7Axis, h9Axis, h11Axis, price,
-          quantity, nameComponent, stepFiveSum, onSubmitClick, subtotal, total, ivaTotal } = props;
+          quantity, nameComponent, stepFiveSum, onSubmitClick, subtotal, total, ivaTotal, idQuote } = props;
   console.log(hoursObj);
   console.log("ResumeComponent | render", companyPrice);
 
@@ -91,9 +89,9 @@ function ResumeComponent(props) {
             </Col>
             <Col>
               <h5>Date</h5>
-              <p>fecha</p>
+              <p></p>
               <h5>Quote</h5>
-              <p>00001</p>
+              <p>{idQuote}</p>
             </Col>
             </Row>
             </Container>

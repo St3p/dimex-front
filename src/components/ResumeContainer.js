@@ -6,7 +6,7 @@ import Alert from "react-bootstrap/Alert";
 import { BrowserRouter, Link} from "react-router-dom";
 import AuthNavbar from "./AuthNavBar";
 import ResumeComponent from "./ResumeComponent"
-import { postCreateQuote } from "../API/NewQuoteAPI";
+import { postCreateQuote, getQuoteCount } from "../API/NewQuoteAPI";
 
 
 import { step1WizardGetQuoteID, step1WizardGetQuoteCompany,
@@ -65,12 +65,21 @@ class ResumeContainer extends Component {
     subtotal: 0,
     total:0,
     ivaTotal: 0,
+    id:0,
   }
-  this.onSuccessCallbackFunc = this.onSuccessCallbackFunc.bind(this);
+  this.onSuccessGetCallbackFunc = this.onSuccessGetCallbackFunc.bind(this);
   this.onSubmitClick=this.onSubmitClick.bind(this);
+  this.onSuccessCreateCallbackFunc = this.onSuccessCreateCallbackFunc.bind(this);
+  this.onSuccessCountCallBack = this.onSuccessCountCallBack.bind(this);
 }
 
-onSuccessCallbackFunc(responseData) {
+onSuccessCountCallBack(responseData){
+    this.setState({
+      id:responseData.results +1,
+    });
+}
+
+onSuccessGetCallbackFunc(responseData) {
   const { hoursObj, companyPrice, stepFiveSum, quantity } = this.state;
   var machinePriceSum = 0;
   for (let item of responseData.results)
@@ -95,6 +104,7 @@ onSuccessCallbackFunc(responseData) {
   var ivaTotal= subtotal*0.16;
   var total = subtotal + ivaTotal;
   console.log("onSuccessCallbackFunc | total", total);
+
 
   this.setState({
       machineArray: responseData.results,
@@ -170,24 +180,22 @@ componentDidMount() {
     if (materialCost !== null && materialCost !== undefined && materialCost !== ""){
       stepFiveSum += parseInt(materialCost);
     }
-
-
     this.setState({
       stepFiveSum:stepFiveSum,
     }, ()=>{
-      getDataCard(this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
+      getDataCard(this.onSuccessGetCallbackFunc, this.onFailureCallbackFunc);
+      getQuoteCount(this.onSuccessCountCallBack);
     });
 }
 onSubmitClick(e) {
-    const { stepFiveSum, companyName, machineArray } = this.state;
-    const postData = {
-        stepFiveSum: stepFiveSum,
-        companyName: companyName,
-
-    };
-    postCreateQuote(postData, this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
+    postCreateQuote(this.state, this.onSuccessCreateCallbackFunc, this.onFailureCallbackFunc);
 }
+onSuccessCreateCallbackFunc(responseData){
+  console.log("onSuccessCreateCallbackFunc | responseData", responseData);
+  alert("finished!");
+  this.props.history.push("/home");
 
+}
   render(){
     const { companyId, companyName, machineArray, hoursObj,
        materialCost, materialName, flatness, straightness,
@@ -195,7 +203,7 @@ onSubmitClick(e) {
        perpendicularity, angularity, profileOfSurface,
        symmetry, concentricity, h7Hole, h8Hole, h9Hole,
        h11Hole, h6Axis, h7Axis, h9Axis, h11Axis, quantity,
-       nameComponent, companyPrice, stepFiveSum, ivaTotal, subtotal, total} = this.state;
+       nameComponent, companyPrice, stepFiveSum, ivaTotal, subtotal, total, id} = this.state;
        console.log("ResumeContainer | render", h7Hole);
 
       return (
@@ -238,6 +246,7 @@ onSubmitClick(e) {
           subtotal={subtotal}
           ivaTotal={ivaTotal}
           total={total}
+          id={id}
 
         />
       );

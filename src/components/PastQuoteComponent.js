@@ -6,37 +6,81 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import AuthNavBar from "./AuthNavBar";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
+import Masonry from 'react-masonry-css'
+import Card from "react-bootstrap/Card";
 
 
-class PastQuoteComponent extends Component{
-  render(){
+function QuoteItem (props) {
+    const { idQuote, nameComponent } = props.item;
+    return (
+      <>
+
+      <Card>
+      <Card.Img variant="top"/>
+          <Card.Body>
+            <Card.Title>Quote {idQuote}</Card.Title>
+            <Card.Text>
+              {nameComponent}
+            </Card.Text>
+            </Card.Body>
+      </Card>
+      </>
+    );
+}
+
+function QuoteTable(props) {
+
+    function renderRow(item) {
+        return <QuoteItem item={item} />;
+    }
+
+    const { array } = props;
+    return (
+        <>
+            <Container>
+              <Row>
+                <Col>
+                <h1>Quotes</h1>
+                <p>List of Quotes done using this app</p>
+                <br />
+                <br />
+                </Col>
+              </Row>
+            </Container>
+            <Container>
+              <Row>
+                <Col>
+                <Masonry
+                      breakpointCols={4}
+                      className="my-masonry-grid"
+                      columnClassName="my-masonry-grid_column">
+                      {array.map(renderRow)}
+                </Masonry>
+                <br />
+                <Button
+                    variant="melon"
+                    type="submit"
+                    id="add"
+                    href="/home" >Back
+                </Button>
+                </Col>
+              </Row>
+            </Container>
+        </>
+    );
+}
+function PastQuoteComponent(props){
+  const { quoteArray } = props;
     return(
       <>
       <AuthNavBar />
-      <Container>
-      <Row>
-        <Col>
-        <h1>Quotes</h1>
-        <p>List of Quotes done using this app</p>
+        <br />
+        <br />
+        <QuoteTable array={quoteArray}/>
         <br />
         <br />
 
-        <ButtonToolbar
-        className="justify-content-between">
-
-        <Button
-                variant="melon"
-                type="submit"
-                id="add"
-                href="/home" >Back
-        </Button>
-        </ButtonToolbar>
-        </Col>
-      </Row>
-
-</Container>
       </>
     );
   }
-}
 export default PastQuoteComponent;
