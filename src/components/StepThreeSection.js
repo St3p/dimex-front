@@ -1,25 +1,21 @@
 
 function MachineItem(props) { // Inside the "resume" component.
-  const { machine, id } = props.mac;
-  const { hoursObj } = props;
-  console.log("MachineItem | machine", machine);
-  console.log("MachineItem | id", id);
-  console.log("MachineItem | hoursObj", hoursObj);
-
+  const { machine, id, price } = props.mac;
+  const { hoursObj, companyPrice } = props;
   const hour = hoursObj[id];
-  console.log("MachineItem | hour", hour);
 
   if (hour === undefined) {
       return (null);
   }
-
+  var newprice= parseInt(price)+parseInt(companyPrice);
+  const machinePrice= parseInt(hour)*newprice;
   return (
     <>
     <tr>
     <td></td>
     <td>{machine}</td>
     <td></td>
-    <td>{hour}</td>
+    <td>{machinePrice}</td>
     </tr>
     </>
   );
@@ -28,10 +24,10 @@ function MachineItem(props) { // Inside the "resume" component.
 
 
 function StepThreeSection(props){
-  const { hoursObj, machineArray } = props;
+  const { hoursObj, machineArray, companyPrice } = props;
   console.log(hoursObj);
     function renderRow(mac) {
-      return <MachineItem mac={mac} hoursObj = {hoursObj} />
+      return <MachineItem mac={mac} hoursObj = {hoursObj} companyPrice={companyPrice} />
     }
   return (
     <>

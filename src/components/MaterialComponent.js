@@ -71,7 +71,7 @@ function MaterialComponent(props) {
                       <Form>
                           <Form.Group>
                           <Form.Label>Cost</Form.Label>
-                          <Form.Control type="text"
+                          <Form.Control type="number"
                                         placeholder="Cost"
                                         onChange={onCostChange}
                                         value={cost}

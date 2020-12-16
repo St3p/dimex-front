@@ -16,6 +16,7 @@ class MachineProcessContainer extends Component {
       this.onSubmitClick = this.onSubmitClick.bind(this);
       this.onSuccessCallbackFunc = this.onSuccessCallbackFunc.bind(this);
       this.onFailureCallbackFunc = this.onFailureCallbackFunc.bind(this);
+
   }
   onSuccessCallbackFunc(responseData) {
       this.setState({
@@ -47,6 +48,7 @@ class MachineProcessContainer extends Component {
 
   render() {
       const { machineArray, hoursObj } = this.state;
+
       return (
           <MachineProcessComponent
               machineArray={machineArray}

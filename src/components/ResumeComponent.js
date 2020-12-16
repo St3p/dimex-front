@@ -24,14 +24,16 @@ import StepZeroSection from "./StepZeroSection"
 
 
 function ResumeComponent(props) {
-  const { companyId, companyName, machineArray, hoursObj, machine,
+  const { companyId, companyName, companyPrice, machineArray, hoursObj, machine,
           materialCost, materialName, flatness, straightness,
           circularity, cylindricity, profileLine, parallelism,
           perpendicularity, angularity, profileOfSurface,
           symmetry, concentricity, h7Hole, h8Hole, h9Hole,
           h11Hole, h6Axis, h7Axis, h9Axis, h11Axis, price,
-          quantity, nameComponent } = props;
+          quantity, nameComponent, stepFiveSum, onSubmitClick, subtotal, total, ivaTotal } = props;
   console.log(hoursObj);
+  console.log("ResumeComponent | render", companyPrice);
+
 
   return (
     <>
@@ -133,7 +135,7 @@ function ResumeComponent(props) {
                   machineArray={machineArray}
                   hoursObj={hoursObj}
                   machine={machine}
-                  price={price}
+                  companyPrice={companyPrice}
                 />
               <tr>
                 <td></td>
@@ -169,24 +171,26 @@ function ResumeComponent(props) {
                         h7Axis={h7Axis}
                         h9Axis={h9Axis}
                         h11Axis={h11Axis}/>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>Subtotal</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>IVA</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td>Total</td>
-                <td></td>
-              </tr>
+
+             <tr>
+               <td></td>
+               <td></td>
+               <td>Subtotal</td>
+               <td>{subtotal}</td>
+             </tr>
+             <tr>
+               <td></td>
+               <td></td>
+               <td>IVA</td>
+               <td>{ivaTotal}</td>
+            </tr>
+            <tr>
+               <td></td>
+               <td></td>
+               <td>total</td>
+               <td>{total}</td>
+            </tr>
+
             </tbody>
             </Table>
             <br />
@@ -216,7 +220,7 @@ function ResumeComponent(props) {
             variant="melon"
             type="submit"
             id="add"
-            onClick={null}> Submit
+            onClick={onSubmitClick}> Submit
              </Button>
     </ButtonToolbar>
     < br />

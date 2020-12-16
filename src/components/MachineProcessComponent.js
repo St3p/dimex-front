@@ -39,7 +39,7 @@ function MachineItem(props) {
               <InputGroup>
                 <Form>
                   <Form.Group>
-                  <FormControl type="text"
+                  <FormControl type="number"
                               placeholder="hours"
                               onChange={ (event)=>onHoursChange(event.target.value, id)}
                               value={hour}
@@ -62,11 +62,11 @@ function MachineItem(props) {
 }
 
 function MachineTable(props) {
-const { onSubmitClick, onHoursChange, hoursObj, machine, capacities } = props;
+const { onSubmitClick, onHoursChange, hoursObj} = props;
 
     function renderRow(item) {
         return <MachineItem onSubmitClick={onSubmitClick} item={item} hoursObj={hoursObj}
-        onHoursChange={onHoursChange} capacities={capacities} machine={machine}/>;
+        onHoursChange={onHoursChange}/>;
     }
 
     const { array } = props;
@@ -155,7 +155,7 @@ function MachineProcessComponent(props) {
                 variant="melon"
                 type="submit"
                 id="add"
-                onClick={()=>onSubmitClick( machine, capacities, hoursObj)}>Next
+                onClick={()=>onSubmitClick(hoursObj)}>Next
         </Button>
         </ButtonToolbar>
 

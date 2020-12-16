@@ -11,7 +11,7 @@ import Nav from "react-bootstrap/Nav";
 
 
 function CompanyItem(props) {
-    const { company, logo, description, id } = props.item;
+    const { company, logo, description, id, price } = props.item;
     const { onClick } = props;
     return (
       <>
@@ -25,7 +25,7 @@ function CompanyItem(props) {
             </Card.Text>
       <Button
           variant="melon"
-          onClick={()=>onClick(id, company)}>Make a Quote for {company}</Button>
+          onClick={()=>onClick(id, company, price)}>Make a Quote for {company}</Button>
             </Card.Body>
       </Card>
       </>

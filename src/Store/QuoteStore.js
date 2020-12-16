@@ -1,6 +1,8 @@
 const QUOTE_STEP1_KEY_ID = "quoteStepOneID";
 const QUOTE_STEP0_KEY_COMPONENT = "quoteStepZeroComponent"
+const QUOTE_STEP1_KEY_COMPANY_PRICE = "quoteStepOneCompanyPrice"
 const QUOTE_STEP1_KEY_COMPANY = "quoteStepOneCompany"
+
 const QUOTE_STEP2_KEY_MATERIAL = "quoteStepTwoMaterial"
 const QUOTE_STEP3_KEY_MACHINE = "quoteStepThreeMachine"
 const QUOTE_STEP4_KEY_MACHINE = "quoteStepFourCritic"
@@ -42,9 +44,11 @@ export function step0WizardSetQuote (nameComponent, quantity){
   localStorage.setItem(QUOTE_STEP0_KEY_QUANTITY , quantity);
 }
 
-export function step1WizardSetQuote (id, company){
+export function step1WizardSetQuote (id, company, price){
   localStorage.setItem(QUOTE_STEP1_KEY_ID, id);
   localStorage.setItem(QUOTE_STEP1_KEY_COMPANY, company);
+  localStorage.setItem(QUOTE_STEP1_KEY_COMPANY_PRICE, price);
+
 }
 
 export function step2WizardSetQuote (material, cost, delivery){
@@ -107,6 +111,11 @@ export function  step1WizardGetQuoteCompany() {
   const company= localStorage.getItem(QUOTE_STEP1_KEY_COMPANY);
   return company;
 }
+
+export function  step1WizardGetQuotePrice() {
+  const price= localStorage.getItem(QUOTE_STEP1_KEY_COMPANY_PRICE);
+  return price;
+}
 export function  step2WizardGetQuoteMaterial() {
   const material= localStorage.getItem(QUOTE_STEP2_KEY_MATERIAL);
   return material;
@@ -124,7 +133,13 @@ export function  step2WizardGetQuoteDelivery() {
 
 export function  step3WizardGetQuoteHours() {
   const hoursObjstring= localStorage.getItem(QUOTE_STEP3_KEY_HOURS);
-  return JSON.parse(hoursObjstring);
+  const hoursObj = JSON.parse(hoursObjstring);
+  if (hoursObj == undefined)
+  {
+    return {};
+  }else {
+    return hoursObj;
+  }
 }
 
 export function  step4WizardGetQuoteFlatness() {
@@ -183,7 +198,7 @@ export function  step4WizardGetQuoteConcentricity() {
   return concentricity;
 }
 
-export function  step4WizardGetQuoteH7Hole() {
+export function  step5WizardGetQuoteH7Hole() {
   const h7Hole= localStorage.getItem(QUOTE_STEP5_KEY_H7HOLE);
   return h7Hole;
 }

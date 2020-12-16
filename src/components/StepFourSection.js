@@ -1,17 +1,177 @@
-function StepFourSection(props){
-  const { straightness, flatness, perpendicularity,
-  circularity, cylindricity, profileLine, parallelism,
-  angularity, profileOfSurface, symmetry, concentricity } = props;
-  const isPerpendicularityOn = props.perpendicularity;
-  const isFlatnessOn = props.flatness;
+function StraightnessFun(props) {
+  const { straightness } = props;
   const isStraightnessOn = props.straightness;
-  const isCircularityOn = props.circularity;
-  const isCylindricityOn = props.cylindricity;
-  const isProfileLineOn = props.profileLine;
+  if (isStraightnessOn){
+    return(
+      <>
+      <tr>
+        <td></td>
+        <td>straightness</td>
+        <td></td>
+        <td>{straightness}</td>
+      </tr>
+      </>
+    );
+  } else {
+    return null};
+}
+
+function FlatnessFun (props){
+  const { flatness } =  props;
+  const isFlatnessOn = props.flatness;
+  if (isFlatnessOn){
+    return(
+      <>
+      <tr>
+        <td></td>
+        <td>flatness</td>
+        <td></td>
+        <td>{flatness}</td>
+      </tr>
+      </>
+    );
+  } else return null;
+}
+
+function PerpendicularityFun(props){
+  const { perpendicularity } = props;
+  const isPerpendicularityOn = props.perpendicularity;
+  if (isPerpendicularityOn){
+    return(
+      <>
+      <tr>
+        <td></td>
+        <td>Perpendicularity</td>
+        <td></td>
+        <td>{perpendicularity}</td>
+      </tr>
+      </>
+    );
+  }else return null;
+}
+
+function ParallelismFun(props){
+  const { parallelism } = props;
   const isParallelismOn = props.parallelism;
+  if (isParallelismOn){
+    return(
+      <>
+      <tr>
+        <td></td>
+        <td>parallelism</td>
+        <td></td>
+        <td>{parallelism}</td>
+      </tr>
+      </>
+    );
+  }else return null;
+}
+
+function CircularityFun(props){
+  const { circularity } = props;
+  const isCircularityOn = props.circularity;
+  if (isCircularityOn){
+    return(
+      <>
+      <tr>
+        <td></td>
+        <td>circularity</td>
+        <td></td>
+        <td>{circularity}</td>
+      </tr>
+      </>
+    );
+  }else return null;
+}
+
+function  CylindricityFun(props){
+  const { cylindricity } = props;
+  const isCylindricityOn = props.cylindricity;
+  if (isCylindricityOn){
+    return(
+      <>
+      <tr>
+        <td></td>
+        <td>cylindricity</td>
+        <td></td>
+        <td>{cylindricity}</td>
+      </tr>
+      </>
+    );
+  }else return null;
+}
+
+function  ProfileLineFun(props){
+  const { profileLine } = props;
+  const isProfileLineOn = props.profileLine;
+  if (isProfileLineOn){
+    return(
+      <>
+      <tr>
+        <td></td>
+        <td>profile Line</td>
+        <td></td>
+        <td>{profileLine}</td>
+      </tr>
+      </>
+    );
+  }else return null;
+}
+
+function  AngularityFun(props){
+  const { angularity } = props;
   const isAngularityOn = props.angularity;
+  if (isAngularityOn){
+    return(
+      <>
+      <tr>
+        <td></td>
+        <td>angularity</td>
+        <td></td>
+        <td>{angularity}</td>
+      </tr>
+      </>
+    );
+  }else return null;
+}
+
+function  ProfileOfSurfaceFun(props){
+  const { profileOfSurface } = props;
   const isProfileOfSurfaceOn = props.profileOfSurface;
+  if (isProfileOfSurfaceOn){
+    return(
+      <>
+      <tr>
+        <td></td>
+        <td>Profile Of Surface</td>
+        <td></td>
+        <td>{profileOfSurface}</td>
+      </tr>
+      </>
+    );
+  }else return null;
+}
+
+
+function  SymmetryFun(props){
+  const { symmetry } = props;
   const isSymetryOn = props.symmetry;
+  if (isSymetryOn){
+    return(
+      <>
+      <tr>
+        <td></td>
+        <td>Symmetry</td>
+        <td></td>
+        <td>{symmetry}</td>
+      </tr>
+      </>
+    );
+  }else return null;
+}
+
+function  ConcentricityFun(props){
+  const { concentricity } = props;
   const isConcentricityOn= props.concentricity;
   if (isConcentricityOn){
     return(
@@ -24,115 +184,40 @@ function StepFourSection(props){
       </tr>
       </>
     );
-  }
-  if (isPerpendicularityOn){
+  }else return null;
+}
+
+function StepFourSection(props){
+  const { straightness, flatness, perpendicularity,
+  circularity, cylindricity, profileLine, parallelism,
+  angularity, profileOfSurface, symmetry, concentricity } = props;
     return(
-      <>
-      <tr>
-        <td></td>
-        <td>Perpendicularity</td>
-        <td></td>
-        <td>{perpendicularity}</td>
-      </tr>
-      </>
-    );
-  }
-  if (isFlatnessOn){
-    return(
-      <>
-      <tr>
-        <td></td>
-        <td>flatness</td>
-        <td></td>
-        <td>{flatness}</td>
-      </tr>
-      </>
-    );
-  }
-  if (isStraightnessOn){
-    return(
-      <>
-      <tr>
-        <td></td>
-        <td>straightness</td>
-        <td></td>
-        <td>{straightness}</td>
-      </tr>
-      </>
-    );
-  }
-  if (isCircularityOn){
-    return(
-      <>
-      <tr>
-        <td></td>
-        <td>Circularity</td>
-        <td></td>
-        <td>{circularity}</td>
-      </tr>
-      </>
-    );
-  }
-  if (isCylindricityOn){
-    return(
-      <>
-      <tr>
-        <td></td>
-        <td>cylindricity</td>
-        <td></td>
-        <td>{cylindricity}</td>
-      </tr>
-      </>
-    );
-  }
-  if (isProfileLineOn){
-    return(
-      <>
-      <tr>
-        <td></td>
-        <td>Profile Line</td>
-        <td></td>
-        <td>{profileLine}</td>
-      </tr>
-      </>
-    );
-  }
-  if (isAngularityOn){
-    return(
-      <>
-      <tr>
-        <td></td>
-        <td>angularity</td>
-        <td></td>
-        <td>{angularity}</td>
-      </tr>
-      </>
-    );
-  }
-  if (isProfileOfSurfaceOn){
-    return(
-      <>
-      <tr>
-        <td></td>
-        <td>profileOfSurface</td>
-        <td></td>
-        <td>{profileOfSurface}</td>
-      </tr>
-      </>
-    );
-  }
-  if (isSymetryOn){
-    return(
-      <>
-      <tr>
-        <td></td>
-        <td>symmetry</td>
-        <td></td>
-        <td>{symmetry}</td>
-      </tr>
-      </>
-    );
-  }else return null
+    <>
+  <StraightnessFun
+    straightness={straightness}/>
+  <FlatnessFun
+    flatness={flatness}/>
+  <PerpendicularityFun
+    perpendicularity={perpendicularity}/>
+  <ParallelismFun
+    parallelism={parallelism}/>
+  <CircularityFun
+    circularity={circularity}/>
+  <CylindricityFun
+    cylindricity={cylindricity}/>
+  <ProfileLineFun
+    profileLine={profileLine}/>
+  <ProfileOfSurfaceFun
+    profileOfSurface={profileOfSurface}/>
+  <SymmetryFun
+    symmetry={symmetry}/>
+  <ConcentricityFun
+    concentricity={concentricity}/>
+
+
+
+    </>
+);
 
 }
 export default StepFourSection;

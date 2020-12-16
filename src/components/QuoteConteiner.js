@@ -12,7 +12,6 @@ class QuoteContainer extends Component {
       this.onSuccessCallbackFunc = this.onSuccessCallbackFunc.bind(this);
       this.onFailureCallbackFunc = this.onFailureCallbackFunc.bind(this);
       this.onClick = this.onClick.bind(this);
-
   }
 
   componentDidMount() {
@@ -29,8 +28,8 @@ class QuoteContainer extends Component {
       console.log(responseData);
   }
 
-  onClick(id, company){
- step1WizardSetQuote(id, company);
+  onClick(id, company, price){
+ step1WizardSetQuote(id, company, price);
  this.props.history.push("/material");
   }
 
