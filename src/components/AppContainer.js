@@ -16,7 +16,7 @@ import CriticPointsContainer from "./CriticPointsContainer"
 import PrecisionLevelContainer from "./PrecisionLevelContainer"
 import ResumeContainer from "./ResumeContainer"
 import ManufactureContainer from "./ManufactureContainer"
-
+import QuoteDetailContainer from "./QuoteDetailContainer";
 
 
 class AppContainer extends Component {
@@ -40,6 +40,7 @@ class AppContainer extends Component {
                   <Route path="/presicionLevel" exact component={PrecisionLevelContainer} />
                   <Route path="/resume" exact component={ResumeContainer} />
                   <Route path="/component" exact component={ManufactureContainer} />
+                  <Route path="/quote/:id"exact component={QuoteDetailContainer} />
 
 
               </Router>

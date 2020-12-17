@@ -8,19 +8,20 @@ import AuthNavBar from "./AuthNavBar";
 import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 import Masonry from 'react-masonry-css'
 import Card from "react-bootstrap/Card";
-
+import { Link } from "react-router-dom";
 
 function QuoteItem (props) {
-    const { idQuote, nameComponent } = props.item;
+    const { id, nameComponent } = props.item;
     return (
       <>
 
       <Card>
       <Card.Img variant="top"/>
           <Card.Body>
-            <Card.Title>Quote {idQuote}</Card.Title>
+            <Card.Title>Quote {id}</Card.Title>
             <Card.Text>
               {nameComponent}
+              <Link to={`/quote/${id}`}>View</Link>
             </Card.Text>
             </Card.Body>
       </Card>
