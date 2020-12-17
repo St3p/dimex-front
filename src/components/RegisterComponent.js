@@ -15,7 +15,7 @@ import ButtonToolbar from "react-bootstrap/ButtonToolbar";
 
 
 function RegisterComponent (props){
-  const { username, password, error, onUsernameChange, onPasswordChange, onClick} = props;
+  const { onSubmitClick, onUsernameChange, onPasswordChange, error, username, password, usernameError, passwordError } = props;
       return (
           <>
           <AnonNavBar/>
@@ -50,14 +50,18 @@ function RegisterComponent (props){
                 <Col>
                     <Form>
                     <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email"
-                                  placeholder="username"
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control type="username"
+                                  placeholder="Enter username"
                                   name="username"
                                   id="username"
                                   onChange={onUsernameChange}
                                   value={username}
+                                  isInvalid={usernameError !== ""}
                                   type="text"/>
+                    <Form.Control.Feedback type="invalid">
+                                Please choose a username.
+                    </Form.Control.Feedback>
                     </Form.Group>
 
                      <Form.Group controlId="formBasicPassword">
@@ -67,8 +71,11 @@ function RegisterComponent (props){
                                    id="password"
                                    onChange={onPasswordChange}
                                    value={password}
-                                   type="text" />
-                     </Form.Group>
+                                   isInvalid={passwordError !== ""}/>
+                      <Form.Control.Feedback type="invalid">
+                                             Please choose a password.
+                      </Form.Control.Feedback>
+                      </Form.Group>
                         </Form>
               </Col>
             </Row>
@@ -86,10 +93,10 @@ function RegisterComponent (props){
             </Button>
 
             <Button
-                    variant="melon"
+                    variant="outline-success"
                     type="submit"
                     id="add"
-                    onClick={onClick}> Submit
+                    onClick={onSubmitClick}> Submit
                      </Button>
             </ButtonToolbar>
             </Col>

@@ -95,7 +95,7 @@ function ManufactureComponent (props) {
             </Button>
 
             <Button
-                    variant="melon"
+                    variant="outline-success"
                     type="submit"
                     id="add"
                     onClick={()=>onSubmitClick(nameComponent, quantity)}> Next

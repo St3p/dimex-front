@@ -7,14 +7,17 @@ class RegisterContainer extends Component{
     super(props);
     this.state ={
       username: "",
+      usernameError: "",
       password: "",
+      passwordError: "",
+      hasError: false,
       error: "",
     };
     this.onUsernameChange = this.onUsernameChange.bind(this);
     this.onPasswordChange = this.onPasswordChange.bind(this);
-    this.onClick = this.onClick.bind(this);
-    this.onSuccess = this.onSuccess.bind(this);
-    this.onFailure = this.onFailure.bind(this);
+    this.onSubmitClick = this.onSubmitClick.bind(this);
+    this.onSuccessCallbackFunc = this.onSuccessCallbackFunc.bind(this);
+    this.onFailureCallbackFunc = this.onFailureCallbackFunc.bind(this);
 
   }
 
@@ -32,39 +35,71 @@ class RegisterContainer extends Component{
       });
   }
 
-  onSuccess(responseData){
+  onSuccessCallbackFunc(responseData){
     alert(responseData.message);
-    this.props.history.push("/");
+    this.props.history.push("/home");
 
   }
 
-  onFailure(responseData){
+  onFailureCallbackFunc(responseData){
+    this.setState({
+        error: responseData.message,
+    })
     alert(responseData.message);
   }
 
-  onClick(e){
-    const {username, password} = this.state
+  onSubmitClick(e){
+    const { username, password } = this.state;
+    let hasError = false;
     const postData = {
-      username:username,
-      password: password,
+        username: username,
+        password: password,
     };
-    postRegister(postData, this.onSuccess, this.onFailure)
-    this.props.history.push("/");
-}
+    if (username === "") {
+        hasError = true;
+        this.setState({
+            usernameError: "Missing field",
+        });
+    } else {
+        this.setState({
+            usernameError: "",
+        });
+    }
+    if (password === "") {
+        hasError = true;
+        this.setState({
+            passwordError: "Missing field",
+        });
+    } else {
+        this.setState({
+            passwordError: "",
+        });
+    }
+
+    if (hasError) {
+        return;
+    } else {
+        postRegister(postData, this.onSuccessCallbackFunc, this.onFailureCallbackFunc);
+    }
+  }
+
 
 
 render() {
-      const { username, password, error } = this.state;
+  const { username, usernameError, password, passwordError, error } = this.state;
       return (
         <>
         <RegisterComponent
-          username={username}
-          password={password}
-          onUsernameChange={this.onUsernameChange}
-          onPasswordChange={this.onPasswordChange}
-          onClick={this.onClick}
-          error={error}/>
-        </>
+        username={username}
+        usernameError={usernameError}
+        password={password}
+        passwordError={passwordError}
+        error={error}
+        onUsernameChange={this.onUsernameChange}
+        onPasswordChange={this.onPasswordChange}
+        onSubmitClick={this.onSubmitClick}
+     />
+     </>
     );
 }}
 

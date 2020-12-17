@@ -38,6 +38,9 @@ class LoginConteiner extends Component{
 
   onFailureCallbackFunc(responseData){
     alert("wrong");
+    this.setState({
+        error: responseData.message,
+    });
   }
 
   onClick(e) {

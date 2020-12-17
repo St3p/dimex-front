@@ -8,10 +8,17 @@ import Col from "react-bootstrap/Col";
 import BigLogo from "./Carusel/BigLogo.png";
 import Table from "react-bootstrap/Table";
 import AuthNavbar from "./AuthNavBar";
+import StepThreeSection from "./StepThreeSection"
+import Button from "react-bootstrap/Button";
 
 function QuoteItem(props) {
     const { companyId, companyName, quantity, nameComponent, materialName,
-    materialCost, machine, machinePrice, subtotal, ivaTotal, total, quoteArray, id} = props.item;
+    materialCost, subtotal, ivaTotal, total, quoteArray, id, machineArray,
+    hoursObj, machine, companyPrice, latness, straightness,
+    circularity, cylindricity, flatness, profileLine, parallelism,
+    perpendicularity, angularity, profileOfSurface,
+    symmetry, concentricity, h7Hole, h8Hole, h9Hole,
+    h11Hole, h6Axis, h7Axis, h9Axis, h11Axis} = props.item;
     const { idDetail } = props;
     console.log("QuoteItem | idDetail:", idDetail);
     if ( idDetail == id ){
@@ -72,31 +79,46 @@ function QuoteItem(props) {
                 <td></td>
                 <td></td>
               </tr>
-              <tr>
-                <td></td>
-                <td>{machine}</td>
-                <td></td>
-                <td>{machinePrice}</td>
-                </tr>
+              <StepThreeSection
+                machineArray={machineArray}
+                hoursObj={hoursObj}
+                machine={machine}
+                companyPrice={companyPrice}
+                />
               <tr>
                 <td></td>
                 <th>Critic Points</th>
                 <td></td>
                 <td></td>
               </tr>
-
-
-
-
+              <StepFourSection
+                    flatness={flatness}
+                    straightness={straightness}
+                    circularity={circularity}
+                    cylindricity={cylindricity}
+                    profileLine={profileLine}
+                    parallelism={parallelism}
+                    perpendicularity={perpendicularity}
+                    angularity={angularity}
+                    profileOfSurface={profileOfSurface}
+                    symmetry={symmetry}
+                    concentricity={concentricity}
+                  />
               <tr>
                 <td></td>
                 <th>Precision</th>
                 <td></td>
                 <td></td>
               </tr>
-
-
-
+              <StepFiveSection
+                        h7Hole={h7Hole}
+                        h8Hole={h8Hole}
+                        h9Hole={h9Hole}
+                        h11Hole={h11Hole}
+                        h6Axis={h6Axis}
+                        h7Axis={h7Axis}
+                        h9Axis={h9Axis}
+                        h11Axis={h11Axis}/>
              <tr>
                <td></td>
                <td></td>
@@ -145,6 +167,7 @@ const { idDetail } = props;
   const { quoteArray, id } = props;
     return(
       <>
+
       <AuthNavbar />
         <br />
         <br />
@@ -152,6 +175,21 @@ const { idDetail } = props;
           array={quoteArray}
           idDetail={id}
         />
+        <br />
+        <Container>
+        <Row>
+        <Col>
+        <Button
+                variant="melon"
+                type="submit"
+                id="add"
+                href="/pastQuote" >Back
+        </Button>
+        </Col>
+        </Row>
+        </Container>
+        <br />
+        <br />
         <br />
         <br />
 

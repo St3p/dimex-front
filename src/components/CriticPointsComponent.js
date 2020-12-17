@@ -385,7 +385,7 @@ function CriticPointsComponent(props) {
                    </Button>
 
                    <Button
-                           variant="melon"
+                           variant="outline-success"
                            type="submit"
                            id="add"
                            onClick={()=>onSubmitClick(straightness, flatness, circularity, cylindricity,

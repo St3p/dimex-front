@@ -21,6 +21,8 @@ function QuoteItem (props) {
             <Card.Title>Quote {id}</Card.Title>
             <Card.Text>
               {nameComponent}
+              < br/>
+              < br/>
               <Link to={`/quote/${id}`}>View</Link>
             </Card.Text>
             </Card.Body>
@@ -43,6 +45,20 @@ function QuoteTable(props) {
                 <Col>
                 <h1>Quotes</h1>
                 <p>List of Quotes done using this app</p>
+                <br />
+                <br />
+                </Col>
+                <Col>
+                <ButtonToolbar
+                className="justify-content-between">
+                <Button
+                        variant="melon"
+                        type="submit"
+                        id="add"
+                        href="/component" >+
+                </Button>
+                </ButtonToolbar>
+
                 <br />
                 <br />
                 </Col>

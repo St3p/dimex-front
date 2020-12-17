@@ -215,7 +215,7 @@ function ResumeComponent(props) {
     </Button>
 
     <Button
-            variant="melon"
+            variant="outline-success"
             type="submit"
             id="add"
             onClick={onSubmitClick}> Submit

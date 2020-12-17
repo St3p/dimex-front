@@ -107,7 +107,7 @@ function NewCompanyComponent(props) {
                     variant="outline-success"
                     type="submit"
                     id="add"
-                    onClick={onSubmitClick}> Next
+                    onClick={onSubmitClick}> submit
             </Button>
             </ButtonToolbar>
 

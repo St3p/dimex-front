@@ -152,7 +152,7 @@ function MachineProcessComponent(props) {
         </Button>
 
         <Button
-                variant="melon"
+                variant="outline-success"
                 type="submit"
                 id="add"
                 onClick={()=>onSubmitClick(hoursObj)}>Next

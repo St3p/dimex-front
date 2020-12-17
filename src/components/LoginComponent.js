@@ -75,7 +75,7 @@ function LoginComponent (props){
                       <Button
                               type="submit"
                               onClick={onClick}
-                              variant="melon"> Login
+                              variant="outline-success"> Login
                       </Button>
                       <Button href="/register"
                               variant="melon">register
